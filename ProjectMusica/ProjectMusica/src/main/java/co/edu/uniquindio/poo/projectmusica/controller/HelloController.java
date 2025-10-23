@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.projectmusica;
+package co.edu.uniquindio.poo.projectmusica.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
