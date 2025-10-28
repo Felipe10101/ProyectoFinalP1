@@ -7,6 +7,7 @@ public class Academia {
     private LinkedList<Estudiante> ListEstudiante;
     private LinkedList<Profesor> ListProfesor;
     private LinkedList<AdministradorAcademico> ListAministradorAcademico;
+    private LinkedList<Matricula> ListMatricula;
 
     public Academia(String nombre, String id) {
         this.nombre = nombre;
@@ -15,6 +16,7 @@ public class Academia {
         this.ListEstudiante = new LinkedList<>();
         this.ListProfesor = new LinkedList<>();
         this.ListAministradorAcademico = new LinkedList<>();
+        this.ListMatricula = new LinkedList<>();
     }
 
     public String getNombre() {

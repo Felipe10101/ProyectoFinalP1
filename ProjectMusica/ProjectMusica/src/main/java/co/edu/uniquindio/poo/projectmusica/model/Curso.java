@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.projectmusica.model;
+import java.util.LinkedList;
 
 public abstract class Curso {
 
@@ -7,6 +8,7 @@ public abstract class Curso {
     private TipoClase Tipoclase;
     private Horario Horario;
     private Nivel Nivel;
+    private LinkedList<Estudiante> ListEstudianteCurso;
 
     public Curso(String nombre, int cupo, TipoClase tipoclase, Horario horario, Nivel nivel) {
         this.nombre = nombre;
@@ -14,6 +16,7 @@ public abstract class Curso {
         Tipoclase = tipoclase;
         Horario = horario;
         Nivel = nivel;
+        this.ListEstudianteCurso = new LinkedList<>();
     }
 
     public String getNombre() {
