@@ -4,10 +4,16 @@ public abstract class Curso {
 
     private String nombre;
     private int cupo;
+    private TipoClase Tipoclase;
+    private Horario Horario;
+    private Nivel Nivel;
 
-    public Curso(String nombre, int cupo) {
+    public Curso(String nombre, int cupo, TipoClase tipoclase, Horario horario, Nivel nivel) {
         this.nombre = nombre;
         this.cupo = cupo;
+        Tipoclase = tipoclase;
+        Horario = horario;
+        Nivel = nivel;
     }
 
     public String getNombre() {
@@ -24,5 +30,29 @@ public abstract class Curso {
 
     public void setCupo(int cupo) {
         this.cupo = cupo;
+    }
+
+    public TipoClase getTipoclase() {
+        return Tipoclase;
+    }
+
+    public void setTipoclase(TipoClase tipoclase) {
+        Tipoclase = tipoclase;
+    }
+
+    public Horario getHorario() {
+        return Horario;
+    }
+
+    public void setHorario(Horario horario) {
+        Horario = horario;
+    }
+
+    public Nivel getNivel() {
+        return Nivel;
+    }
+
+    public void setNivel(Nivel nivel) {
+        Nivel = nivel;
     }
 }

@@ -6,6 +6,7 @@ public class Piano extends Curso{
     private boolean requierePedales;
 
     public Piano(String nombre, int cupo, String tipoPiano, String marca, boolean requierePedales) {
+        super( nombre, cupo, tipoclase, horario, nivel);
         super(nombre, cupo);
         this.tipoPiano = tipoPiano;
         this.marca = marca;
