@@ -1,9 +1,9 @@
-AcademiaController.javapackage co.edu.uniquindio.poo.projectmusica.controller;
+package co.edu.uniquindio.poo.projectmusica.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class ReporteProgresoController {
+public class CursoViewController {
     @FXML
     private Label welcomeText;
 
