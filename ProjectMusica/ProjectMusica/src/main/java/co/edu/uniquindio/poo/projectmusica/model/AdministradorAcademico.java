@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
-public class AdministradorAcademico {
+public class AdministradorAcademico implements IUsuario, IHorarioGestionable, IReporteable  {
     private String usuario, id, password;
 
     public AdministradorAcademico(String usuario, String id, String password) {

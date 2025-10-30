@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
-public class Profesor {
+public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable  {
     private String nombre, id, telefono;
     private int edad;
 

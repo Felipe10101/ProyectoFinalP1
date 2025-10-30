@@ -1,7 +1,7 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 import java.util.LinkedList;
 
-public abstract class Curso {
+public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICurso {
 
     private String nombre;
     private int cupo;

@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
-public class Estudiante {
+public class Estudiante implements IUsuario, IInscribible, IReporteable {
     private String nombre, id, telefono;
     private int edad;
 
