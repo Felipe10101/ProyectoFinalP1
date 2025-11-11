@@ -1,22 +1,23 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 import java.util.LinkedList;
+import co.edu.uniquindio.poo.projectmusica.model.*;
 
 public class Academia {
     private String nombre, id;
-    private LinkedList<Curso> ListCurso;
-    private LinkedList<Estudiante> ListEstudiante;
-    private LinkedList<Profesor> ListProfesor;
-    private LinkedList<AdministradorAcademico> ListAministradorAcademico;
-    private LinkedList<Matricula> ListMatricula;
+    private LinkedList<Curso> ListCursos;
+    private LinkedList<Estudiante> ListEstudiantes;
+    private LinkedList<Profesor> ListProfesores;
+    private LinkedList<AdministradorAcademico> ListAministradorAcademicos;
+    private LinkedList<Matricula> ListMatriculas;
 
     public Academia(String nombre, String id) {
         this.nombre = nombre;
         this.id = id;
-        this.ListCurso = new LinkedList<>();
-        this.ListEstudiante = new LinkedList<>();
-        this.ListProfesor = new LinkedList<>();
-        this.ListAministradorAcademico = new LinkedList<>();
-        this.ListMatricula = new LinkedList<>();
+        this.ListCursos = new LinkedList<>();
+        this.ListEstudiantes= new LinkedList<>();
+        this.ListProfesores= new LinkedList<>();
+        this.ListAministradorAcademicos = new LinkedList<>();
+        this.ListMatriculas = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -33,6 +34,53 @@ public class Academia {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean agregarCliente(Estudiante Estudiante) {
+        boolean centinela = false;
+        if (!verificarEstudiante(Estudiante.getId())) {
+            ListEstudiantes.add(Estudiante);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarEstudiante (String cedula) {
+        boolean centinela = false;
+        for (Estudiante Estudiante : ListEstudiantes) {
+            if (Estudiante.getId().equals(cedula)) {
+                ListEstudiantes.remove(Estudiante);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
+        boolean centinela = false;
+        for (Estudiante Estudiante : ListEstudiantes) {
+            if (Estudiante.getId().equals(Id)) {
+                Estudiante.setNombre(actualizado.getNombre());
+                Estudiante.setTelefono(actualizado.getTelefono());
+                Estudiante.setEdad(actualizado.getEdad());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarEstudiante(String Id) {
+        boolean centinela = false;
+        for (Estudiante Estudiante : ListEstudiantes) {
+            if (Estudiante.getId().equals(Id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
     }
 }
 
