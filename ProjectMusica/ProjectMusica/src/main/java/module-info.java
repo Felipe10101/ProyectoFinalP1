@@ -1,6 +1,7 @@
 module co.edu.uniquindio.poo.projectmusica {
     requires javafx.controls;
     requires javafx.fxml;
+    requires co.edu.uniquindio.poo.projectmusica;
 
 
     opens co.edu.uniquindio.poo.projectmusica to javafx.fxml;
