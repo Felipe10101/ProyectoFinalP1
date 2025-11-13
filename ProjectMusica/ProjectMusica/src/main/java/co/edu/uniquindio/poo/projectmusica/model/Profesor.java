@@ -70,7 +70,7 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
         System.out.println("Fecha: " + fecha);
 
         if (curso instanceof Piano piano) {
-            System.out.println("🎹 Tipo de piano: " + piano.getTipoPiano());
+            System.out.println("Tipo de piano: " + piano.getTipoPiano());
             System.out.println("Marca: " + piano.getMarca());
             System.out.println("¿Requiere pedales?: " + (piano.isRequierePedales() ? "Sí" : "No"));
         }
