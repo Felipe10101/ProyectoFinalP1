@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
+import java.time.LocalDate;
+
 public class Piano extends Curso{
 
     private String tipoPiano, marca;
@@ -34,5 +36,10 @@ public class Piano extends Curso{
 
     public void setRequierePedales(boolean requierePedales) {
         this.requierePedales = requierePedales;
+    }
+
+    @Override
+    public void crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
+
     }
 }

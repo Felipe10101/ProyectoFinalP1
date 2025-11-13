@@ -58,4 +58,23 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
     public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
+
+    // Métodos abstractos o vacíos de IEvaluable
+    @Override
+    public void registrarProgreso() {}
+
+    @Override
+    public void consultarProgreso() {}
+
+    @Override
+    public void gestionarHorarioDisponible() {}
+
+    @Override
+    public void crearClaseGrupal() {}
+
+    @Override
+    public void registrarAsistencia() {}
+
+    @Override
+    public void valorarProgreso() {}
 }

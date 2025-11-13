@@ -281,15 +281,7 @@ public class Academia {
         return centinela;
     }
 
-    public String VerHorarioDisponibles (Curso Curso){
-        for (Curso C : ListCursos) {
-            if (c.getId().equals(curso.getd())) {
-                if (c.getHorario().isDisponible()) {
-                    disponible = true;
-                    break;
-            }
-        }
-    }
+
 
 
 
