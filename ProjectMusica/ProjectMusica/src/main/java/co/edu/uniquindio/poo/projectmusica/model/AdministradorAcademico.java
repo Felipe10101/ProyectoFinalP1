@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.projectmusica.model;
+import co.edu.uniquindio.poo.projectmusica.model.*;
 
 public class AdministradorAcademico implements IUsuario, IHorarioGestionable, IReporteable  {
     private String usuario, id, password;
@@ -31,5 +32,8 @@ public class AdministradorAcademico implements IUsuario, IHorarioGestionable, IR
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
     }
 }

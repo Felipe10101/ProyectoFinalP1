@@ -7,7 +7,7 @@ public class Academia {
     private LinkedList<Curso> ListCursos;
     private LinkedList<Estudiante> ListEstudiantes;
     private LinkedList<Profesor> ListProfesores;
-    private LinkedList<AdministradorAcademico> ListAministradorAcademicos;
+    private LinkedList<AdministradorAcademico> ListAdministradores;
     private LinkedList<Matricula> ListMatriculas;
 
     public Academia(String nombre, String id) {
@@ -16,7 +16,7 @@ public class Academia {
         this.ListCursos = new LinkedList<>();
         this.ListEstudiantes= new LinkedList<>();
         this.ListProfesores= new LinkedList<>();
-        this.ListAministradorAcademicos = new LinkedList<>();
+        this.ListAdministradores = new LinkedList<>();
         this.ListMatriculas = new LinkedList<>();
     }
 
@@ -47,10 +47,10 @@ public class Academia {
         return centinela;
     }
 
-    public boolean eliminarEstudiante (String cedula) {
+    public boolean eliminarEstudiante (String id) {
         boolean centinela = false;
         for (Estudiante Estudiante : ListEstudiantes) {
-            if (Estudiante.getId().equals(cedula)) {
+            if (Estudiante.getId().equals(id)) {
                 ListEstudiantes.remove(Estudiante);
                 centinela = true;
                 break;
@@ -158,7 +158,7 @@ public class Academia {
     }
 
 
-    public boolean actualizarCurso(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel, Curso actualizado) {
+    public boolean actualizarCurso(String nombre,Curso actualizado) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
             if (Curso.getNombre().equals(nombre)) {
@@ -183,6 +183,116 @@ public class Academia {
         }
         return centinela;
     }
+
+// CRUD ADMINISTRADOR ACADEMICO
+
+    public boolean agregarAdministradorAcademico(AdministradorAcademico AdministradorAcademico) {
+        boolean centinela = false;
+        if (!verificarAdministradorAcademico(AdministradorAcademico.getId())) {
+            ListAdministradores.add(AdministradorAcademico);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarAdministradorAcademico (String Id) {
+        boolean centinela = false;
+        for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
+            if (AdministradorAcademico.getId().equals(id)) {
+                ListAdministradores.remove(AdministradorAcademico);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarAdministradorAcademico(String Id, AdministradorAcademico actualizado) {
+        boolean centinela = false;
+        for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
+            if (AdministradorAcademico.getId().equals(Id)) {
+                AdministradorAcademico.setUsuario(actualizado.getUsuario());
+                AdministradorAcademico.setPassword(actualizado.getPassword());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarAdministradorAcademico(String Id) {
+        boolean centinela = false;
+        for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
+            if (AdministradorAcademico.getId().equals(Id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+
+    //CRUD MATRICULA
+
+    public boolean agregarMatricula(Matricula matricula){
+        boolean centinela = false;
+        if (!verificarMatricula(Matricula.getId())){
+            ListMatriculas.add(matricula);
+            centinela = true;
+        }
+        return centinela;
+
+
+    }
+
+    public boolean eliminarMatricula(String Id){
+        boolean centinela = false;
+        for (Matricula matricula : ListMatriculas){
+            if (Matricula.getId().equals(id)){
+            ListMatriculas.remove(matricula);
+            centinela = true;
+            break;
+            }
+        }
+        return centinela;
+    }
+
+    public boolean actualizarMatricula(String Id, Matricula actualizado){
+        boolean centinela = false;
+        for (Matricula Matricula : ListMatriculas){
+            if ( Matricula.getId().equals(Id)){
+                Matricula.setFecha(actualizado.getFecha());
+                    centinela = true;
+                    break ;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarMatricula(String Id) {
+        boolean centinela = false;
+        for (Matricula Matricula : ListMatriculas) {
+            if (Matricula.getId().equals(Id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
+    public String VerHorarioDisponibles (Curso Curso){
+        for (Curso C : ListCursos) {
+            if (c.getId().equals(curso.getd())) {
+                if (c.getHorario().isDisponible()) {
+                    disponible = true;
+                    break;
+            }
+        }
+    }
+
+
+
 }
 
 
