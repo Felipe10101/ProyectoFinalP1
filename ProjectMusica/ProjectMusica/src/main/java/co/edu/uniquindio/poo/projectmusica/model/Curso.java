@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.projectmusica.model;
+import co.edu.uniquindio.poo.projectmusica.model.*;
 import java.util.LinkedList;
 
 public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICurso {
@@ -8,7 +9,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
     private TipoClase tipoClase;
     private Horario horario;
     private Nivel nivel;
-    private LinkedList<Estudiante> ListEstudiantesCurso;
+    private LinkedList<Estudiante> ListEstudiantesCursos;
 
     public Curso(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel) {
         this.nombre = nombre;
@@ -16,7 +17,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         this.tipoClase = tipoClase;
         this.horario = horario;
         this.nivel = nivel;
-        this.ListEstudiantesCurso = new LinkedList<>();
+        this.ListEstudiantesCursos = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -59,7 +60,55 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         this.nivel = nivel;
     }
 
-    // Métodos abstractos o vacíos de IEvaluable
+
+
+    public boolean agregarEstudiante(Estudiante estudiante) {
+        boolean centinela = false;
+        if (!verificarEstudiante(estudiante.getId())) {
+            ListEstudiantesCursos.add(estudiante);
+            centinela = true;
+        }
+        return centinela;
+    }
+
+    public boolean eliminarEstudiante (String id) {
+        boolean centinela = false;
+        for (Estudiante estudiante : ListEstudiantesCursos) {
+            if (estudiante.getId().equals(id)) {
+                ListEstudiantesCursos.remove(estudiante);
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
+        boolean centinela = false;
+        for (Estudiante estudiante : ListEstudiantesCursos) {
+            if (estudiante.getId().equals(Id)) {
+                estudiante.setNombre(actualizado.getNombre());
+                estudiante.setTelefono(actualizado.getTelefono());
+                estudiante.setEdad(actualizado.getEdad());
+                centinela = true;
+                break;
+            }
+        }
+        return centinela;
+    }
+
+
+    public boolean verificarEstudiante(String Id) {
+        boolean centinela = false;
+        for (Estudiante estudiante : ListEstudiantesCursos) {
+            if (estudiante.getId().equals(Id)) {
+                centinela = true;
+            }
+        }
+        return centinela;
+    }
+
     @Override
     public void registrarProgreso() {}
 
