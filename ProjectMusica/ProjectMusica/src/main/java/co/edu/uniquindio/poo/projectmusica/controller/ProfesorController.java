@@ -23,13 +23,13 @@ public class ProfesorController {
         @FXML
         private DatePicker dpFecha;
 
-        private String nombre = "Profesor Ejemplo";
+        private String nombre = "Profesor";
 
         public void crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
             ReporteProgreso reporte = new ReporteProgreso(comentario, nota, fecha);
 
             StringBuilder sb = new StringBuilder();
-            sb.append("📋 Reporte de Progreso\n");
+            sb.append("Reporte de Progreso\n");
             sb.append("------------------------------\n");
             sb.append("Profesor: ").append(nombre).append("\n");
             sb.append("Curso: ").append(curso.getNombre()).append("\n");
