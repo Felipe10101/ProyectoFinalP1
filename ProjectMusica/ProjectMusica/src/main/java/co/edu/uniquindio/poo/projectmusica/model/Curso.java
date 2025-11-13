@@ -1,8 +1,7 @@
 package co.edu.uniquindio.poo.projectmusica.model;
-import co.edu.uniquindio.poo.projectmusica.model.*;
 import java.util.LinkedList;
 
-public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICurso {
+public abstract class Curso implements IValidable, IReporteable, ICurso {
 
     private String nombre;
     private int cupo;
@@ -10,6 +9,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
     private Horario horario;
     private Nivel nivel;
     private LinkedList<Estudiante> ListEstudiantesCursos;
+    private LinkedList<Asistencia> listAsistencias;
 
     public Curso(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel) {
         this.nombre = nombre;
@@ -18,6 +18,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         this.horario = horario;
         this.nivel = nivel;
         this.ListEstudiantesCursos = new LinkedList<>();
+        this.listAsistencias = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -60,7 +61,23 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         this.nivel = nivel;
     }
 
+    public LinkedList<Estudiante> getListEstudiantesCursos() {
+        return ListEstudiantesCursos;
+    }
 
+    public void setListEstudiantesCursos(LinkedList<Estudiante> listEstudiantesCursos) {
+        ListEstudiantesCursos = listEstudiantesCursos;
+    }
+
+    public LinkedList<Asistencia> getListaAsistencias() {
+        return listAsistencias;
+    }
+
+    public void setListaAsistencias(LinkedList<Asistencia> listAsistencias) {
+        this.listAsistencias = listAsistencias;
+    }
+
+    // CRUD ESTUIDIANTE CURSO
 
     public boolean agregarEstudiante(Estudiante estudiante) {
         boolean centinela = false;
@@ -71,7 +88,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         return centinela;
     }
 
-    public boolean eliminarEstudiante (String id) {
+    public boolean eliminarEstudiante(String id) {
         boolean centinela = false;
         for (Estudiante estudiante : ListEstudiantesCursos) {
             if (estudiante.getId().equals(id)) {
@@ -109,21 +126,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         return centinela;
     }
 
-    @Override
-    public void registrarProgreso() {}
-
-    @Override
-    public void consultarProgreso() {}
-
-    @Override
-    public void gestionarHorarioDisponible() {}
-
-    @Override
-    public void crearClaseGrupal() {}
-
-    @Override
-    public void registrarAsistencia() {}
-
-    @Override
-    public void valorarProgreso() {}
+    public void agregarAsistencia(Asistencia asistencia) {
+        listAsistencias.add(asistencia);
+    }
 }
