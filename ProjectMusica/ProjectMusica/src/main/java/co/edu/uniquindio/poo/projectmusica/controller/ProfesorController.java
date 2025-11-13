@@ -68,7 +68,7 @@ public class ProfesorController {
                 double nota = Double.parseDouble(txtNota.getText());
                 LocalDate fecha = dpFecha.getValue();
 
-                // 🧠 Puedes cambiar esto según el curso actual del profesor
+
                 Curso curso = new Piano("Piano Básico", "Inicial", "Individual", "Acústico", "Yamaha", true);
 
                 crearComentario(comentario, nota, fecha, curso);

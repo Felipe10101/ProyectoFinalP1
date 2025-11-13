@@ -8,7 +8,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
     private TipoClase tipoClase;
     private Horario horario;
     private Nivel nivel;
-    private LinkedList<Estudiante> ListEstudianteCurso;
+    private LinkedList<Estudiante> ListEstudiantesCurso;
 
     public Curso(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel) {
         this.nombre = nombre;
@@ -16,7 +16,7 @@ public abstract class Curso implements IEvaluable, IValidable, IReporteable, ICu
         this.tipoClase = tipoClase;
         this.horario = horario;
         this.nivel = nivel;
-        this.ListEstudianteCurso = new LinkedList<>();
+        this.ListEstudiantesCurso = new LinkedList<>();
     }
 
     public String getNombre() {
