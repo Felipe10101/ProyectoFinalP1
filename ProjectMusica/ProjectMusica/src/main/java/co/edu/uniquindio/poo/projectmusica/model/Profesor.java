@@ -59,11 +59,6 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
     }
 
     @Override
-    public void gestionarHorarioDisponible() {
-
-    }
-
-    @Override
     public void crearClaseGrupal() {
 
     }
@@ -84,7 +79,4 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
     public void valorarProgreso() {
 
     }
-
-// @OVERRIDE
-
 }

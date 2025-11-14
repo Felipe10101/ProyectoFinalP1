@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.projectmusica.model;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public abstract class Curso implements IValidable, IReporteable, ICurso {
@@ -8,8 +9,9 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
     private TipoClase tipoClase;
     private Horario horario;
     private Nivel nivel;
-    private LinkedList<Estudiante> ListEstudiantesCursos;
+    private ArrayList<Estudiante> ListEstudiantesCursos;
     private LinkedList<Asistencia> listAsistencias;
+    private LinkedList<ReporteProgreso> listReportes;
 
     public Curso(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel) {
         this.nombre = nombre;
@@ -17,8 +19,9 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         this.tipoClase = tipoClase;
         this.horario = horario;
         this.nivel = nivel;
-        this.ListEstudiantesCursos = new LinkedList<>();
+        this.ListEstudiantesCursos = new ArrayList<>(15);
         this.listAsistencias = new LinkedList<>();
+        this.listReportes = new LinkedList<>();
     }
 
     public String getNombre() {
@@ -61,20 +64,28 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         this.nivel = nivel;
     }
 
-    public LinkedList<Estudiante> getListEstudiantesCursos() {
+    public ArrayList<Estudiante> getListEstudiantesCursos() {
         return ListEstudiantesCursos;
     }
 
-    public void setListEstudiantesCursos(LinkedList<Estudiante> listEstudiantesCursos) {
+    public void setListEstudiantesCursos(ArrayList<Estudiante> listEstudiantesCursos) {
         ListEstudiantesCursos = listEstudiantesCursos;
     }
 
-    public LinkedList<Asistencia> getListaAsistencias() {
+    public LinkedList<Asistencia> getListAsistencias() {
         return listAsistencias;
     }
 
-    public void setListaAsistencias(LinkedList<Asistencia> listAsistencias) {
+    public void setListAsistencias(LinkedList<Asistencia> listAsistencias) {
         this.listAsistencias = listAsistencias;
+    }
+
+    public LinkedList<ReporteProgreso> getListReportes() {
+        return listReportes;
+    }
+
+    public void setListReportes(LinkedList<ReporteProgreso> listReportes) {
+        this.listReportes = listReportes;
     }
 
     // CRUD ESTUIDIANTE CURSO
