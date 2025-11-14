@@ -162,8 +162,6 @@ public class Academia {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
             if (Curso.getNombre().equals(nombre)) {
-                Curso.setCupo(actualizado.getCupo());
-                Curso.setTipoClase(actualizado.getTipoClase());
                 Curso.setHorario(actualizado.getHorario());
                 Curso.setNivel(actualizado.getNivel());
                 centinela = true;

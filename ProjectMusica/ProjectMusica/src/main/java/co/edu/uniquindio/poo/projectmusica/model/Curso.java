@@ -5,21 +5,19 @@ import java.util.LinkedList;
 public abstract class Curso implements IValidable, IReporteable, ICurso {
 
     private String nombre;
-    private int cupo;
-    private TipoClase tipoClase;
     private Horario horario;
     private Nivel nivel;
-    private ArrayList<Estudiante> ListEstudiantesCursos;
+    private Aula aula;
+    private CursoGrupal CursoGrupal;
+    private CursoIndividual CursoIndividual;
+    private Profesor profesor;
     private LinkedList<Asistencia> listAsistencias;
     private LinkedList<ReporteProgreso> listReportes;
 
-    public Curso(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel) {
+    public Curso(String nombre, int cupo, Horario horario, Nivel nivel) {
         this.nombre = nombre;
-        this.cupo = cupo;
-        this.tipoClase = tipoClase;
         this.horario = horario;
         this.nivel = nivel;
-        this.ListEstudiantesCursos = new ArrayList<>(15);
         this.listAsistencias = new LinkedList<>();
         this.listReportes = new LinkedList<>();
     }
@@ -32,21 +30,6 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         this.nombre = nombre;
     }
 
-    public int getCupo() {
-        return cupo;
-    }
-
-    public void setCupo(int cupo) {
-        this.cupo = cupo;
-    }
-
-    public TipoClase getTipoClase() {
-        return tipoClase;
-    }
-
-    public void setTipoClase(TipoClase tipoClase) {
-        this.tipoClase = tipoClase;
-    }
 
     public Horario getHorario() {
         return horario;
@@ -62,14 +45,6 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
 
     public void setNivel(Nivel nivel) {
         this.nivel = nivel;
-    }
-
-    public ArrayList<Estudiante> getListEstudiantesCursos() {
-        return ListEstudiantesCursos;
-    }
-
-    public void setListEstudiantesCursos(ArrayList<Estudiante> listEstudiantesCursos) {
-        ListEstudiantesCursos = listEstudiantesCursos;
     }
 
     public LinkedList<Asistencia> getListAsistencias() {
@@ -88,56 +63,4 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         this.listReportes = listReportes;
     }
 
-    // CRUD ESTUIDIANTE CURSO
-
-    public boolean agregarEstudiante(Estudiante estudiante) {
-        boolean centinela = false;
-        if (!verificarEstudiante(estudiante.getId())) {
-            ListEstudiantesCursos.add(estudiante);
-            centinela = true;
-        }
-        return centinela;
-    }
-
-    public boolean eliminarEstudiante(String id) {
-        boolean centinela = false;
-        for (Estudiante estudiante : ListEstudiantesCursos) {
-            if (estudiante.getId().equals(id)) {
-                ListEstudiantesCursos.remove(estudiante);
-                centinela = true;
-                break;
-            }
-        }
-        return centinela;
-    }
-
-
-    public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
-        boolean centinela = false;
-        for (Estudiante estudiante : ListEstudiantesCursos) {
-            if (estudiante.getId().equals(Id)) {
-                estudiante.setNombre(actualizado.getNombre());
-                estudiante.setTelefono(actualizado.getTelefono());
-                estudiante.setEdad(actualizado.getEdad());
-                centinela = true;
-                break;
-            }
-        }
-        return centinela;
-    }
-
-
-    public boolean verificarEstudiante(String Id) {
-        boolean centinela = false;
-        for (Estudiante estudiante : ListEstudiantesCursos) {
-            if (estudiante.getId().equals(Id)) {
-                centinela = true;
-            }
-        }
-        return centinela;
-    }
-
-    public void agregarAsistencia(Asistencia asistencia) {
-        listAsistencias.add(asistencia);
-    }
 }

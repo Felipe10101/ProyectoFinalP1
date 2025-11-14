@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.projectmusica.model;
 
 public enum Horario {
     TARDE,
+    MEDIATARDE,
     MANIANA,
-    NOCHE
+    MEDIAMANIANA,
+    NOCHE,
 }

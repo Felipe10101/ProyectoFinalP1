@@ -4,6 +4,7 @@ import java.time.LocalDate;
 public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
     private String nombre, id, telefono;
     private int edad;
+    private Horario Horario;
 
     public Profesor(String nombre, String id, String telefono, int edad) {
         this.nombre = nombre;
