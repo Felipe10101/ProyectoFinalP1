@@ -5,13 +5,31 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="459.0" prefWidth="601.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.projectmusica.controller.AcademiaController">
+<VBox spacing="20" alignment="CENTER"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.poo.projectmusica.controller.AcademiaController">
+
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
+        <Insets top="40" bottom="40" left="40" right="40"/>
     </padding>
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-    <Button onAction="#onHelloButtonClick" />
 
-    <Label fx:id="ACADEMIA" contentDisplay="CENTER" prefHeight="32.0" prefWidth="66.0" VBox.vgrow="SOMETIMES" />
+    <Label text="Academia UQ Música"
+           style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+    <Label text="Ingresar como:"
+           style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
+
+    <Button text="Estudiante"
+            prefWidth="220"
+            onAction="#ingresarEstudiante"/>
+
+    <Button text="Profesor"
+            prefWidth="220"
+            onAction="#ingresarProfesor"/>
+
+    <Button text="Administrador Académico"
+            prefWidth="220"
+            onAction="#ingresarAdmin"/>
+
 </VBox>
-

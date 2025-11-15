@@ -1,8 +1,6 @@
 package co.edu.uniquindio.poo.projectmusica.controller;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import co.edu.uniquindio.poo.projectmusica.model.*;
-import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.DatePicker;
@@ -25,7 +23,7 @@ public class ProfesorController {
 
         private String nombre = "Profesor";
 
-        public void crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
+        public String crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
             ReporteProgreso reporte = new ReporteProgreso(comentario, nota, fecha);
 
             StringBuilder sb = new StringBuilder();
@@ -59,6 +57,7 @@ public class ProfesorController {
             sb.append("------------------------------\n");
 
             txtReporteProgreso.setText(sb.toString());
+            return comentario;
         }
 
         @FXML
