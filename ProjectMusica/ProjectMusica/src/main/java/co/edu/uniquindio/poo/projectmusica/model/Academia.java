@@ -283,6 +283,51 @@ public class Academia {
         return centinela;
     }
 
+    // ASIGNAR CURSO
+
+    public boolean asignarAulaACurso(String nombreCurso, Aula aula) {
+
+        Curso curso = null;
+        for (Curso c : ListCursos) {
+            if (c.getNombre().equals(nombreCurso)) {
+                curso = c;
+                break;
+            }
+        }
+        if (curso == null) {
+            System.out.println("Error: el curso no existe.");
+            return false;
+        }
+        if (curso.getCupo() > aula.Capacidad()) {
+            System.out.println("Error: el aula no tiene capacidad suficiente.");
+            return false;
+        }
+        for (Curso c : ListCursos) {
+            if (c.getAula() != null && c.getAula().equals(aula)) {
+                if (c.getHorario() == curso.getHorario()) {
+                    System.out.println("Error: el aula ya está ocupada en ese horario.");
+                    return false;
+                }
+            }
+        }
+        Profesor profesor = curso.getProfesor();
+        for (Curso c : ListCursos) {
+            if (c != curso && c.getProfesor().equals(profesor)) {
+                if (c.getHorario() == curso.getHorario()) {
+                    System.out.println("Error: el profesor ya dicta otro curso en ese horario.");
+                    return false;
+                }
+            }
+        }
+        curso.setAula(aula);
+        System.out.println("Aula asignada correctamente.");
+        return true;
+    }
+
+
+
+
+
 }
 
 
