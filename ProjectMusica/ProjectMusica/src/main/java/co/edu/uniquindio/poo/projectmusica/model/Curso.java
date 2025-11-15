@@ -135,7 +135,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         }
         return false;
     }
-
+//
     public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
             if (estudiante.getId().equals(Id)) {
@@ -147,6 +147,8 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         }
         return false;
     }
+
+    //
 
     public boolean verificarEstudiante(String Id) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
