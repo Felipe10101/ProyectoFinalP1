@@ -57,6 +57,7 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
 
     @Override
     public void crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
+
     }
 
     @Override
@@ -66,18 +67,16 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
 
     @Override
     public void registrarAsistencia(Curso curso, Estudiante estudiante, boolean presente, Profesor profesor) {
-        Asistencia asistencia = new Asistencia(LocalDate.now(), presente);
-        curso.agregarAsistencia(asistencia);
 
-        System.out.println("Asistencia registrada:");
-        System.out.println("Profesor: " + nombre);
-        System.out.println("Estudiante: " + estudiante.getNombre());
-        System.out.println("Curso: " + curso.getNombre());
-        System.out.println("Presente: " + (presente ? "Sí" : "No"));
     }
 
     @Override
     public void valorarProgreso() {
+
+    }
+
+    @Override
+    public void gestionHorarios(Curso curso, Horario horario) {
 
     }
 }

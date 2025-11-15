@@ -46,7 +46,6 @@ public class Academia {
         }
         return centinela;
     }
-
     public boolean eliminarEstudiante (String id) {
         boolean centinela = false;
         for (Estudiante Estudiante : ListEstudiantes) {
@@ -58,8 +57,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
         boolean centinela = false;
         for (Estudiante Estudiante : ListEstudiantes) {
@@ -73,8 +70,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean verificarEstudiante(String Id) {
         boolean centinela = false;
         for (Estudiante Estudiante : ListEstudiantes) {
@@ -95,7 +90,6 @@ public class Academia {
         }
         return centinela;
     }
-
     public boolean eliminarProfesor (String cedula) {
         boolean centinela = false;
         for (Profesor Profesor : ListProfesores) {
@@ -107,8 +101,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean actualizarProfesor(String Id, Profesor actualizado) {
         boolean centinela = false;
         for (Profesor Profesor : ListProfesores) {
@@ -122,8 +114,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean verificarProfesor(String Id) {
         boolean centinela = false;
         for (Profesor Profesor : ListProfesores) {
@@ -136,13 +126,41 @@ public class Academia {
 
     // CRUD CURSO
 
-    public boolean agregarCurso(Curso Curso) {
-        boolean centinela = false;
-        if (!verificarCurso(Curso.getNombre())) {
-            ListCursos.add(Curso);
-            centinela = true;
-        }
-        return centinela;
+    public Curso crearCursoPiano(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
+                                 String tipoPiano, String marcaPiano, boolean requierePedales) {
+
+        Curso curso = new Piano(nombre, cupo, tipoClase, horario, nivel,
+                tipoPiano, marcaPiano, requierePedales);
+
+        ListCursos.add(curso);
+        return curso;
+    }
+    public Curso crearCursoGuitarra(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
+                                    String afinacion, String tipoCuerda, int cuerdas) {
+
+        Curso curso = new Guitarra(nombre, cupo, tipoClase, horario, nivel,
+                afinacion, tipoCuerda, cuerdas);
+
+        ListCursos.add(curso);
+        return curso;
+    }
+    public Curso crearCursoCanto(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
+                                 String tipoVoz, String generoMusical) {
+
+        Curso curso = new Canto(nombre, cupo, tipoClase, horario, nivel,
+                tipoVoz, generoMusical);
+
+        ListCursos.add(curso);
+        return curso;
+    }
+    public Curso crearCursoViolin(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
+                                  String tamanio, String arco, String tecnica) {
+
+        Curso curso = new Violin(nombre, cupo, tipoClase, horario, nivel,
+                tamanio, arco, tecnica);
+
+        ListCursos.add(curso);
+        return curso;
     }
 
     public boolean eliminarCurso (String nombre) {
@@ -156,8 +174,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean actualizarCurso(String nombre,Curso actualizado) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
@@ -170,8 +186,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean verificarCurso(String Nombre) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
@@ -192,7 +206,6 @@ public class Academia {
         }
         return centinela;
     }
-
     public boolean eliminarAdministradorAcademico (String Id) {
         boolean centinela = false;
         for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
@@ -204,8 +217,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean actualizarAdministradorAcademico(String Id, AdministradorAcademico actualizado) {
         boolean centinela = false;
         for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
@@ -218,8 +229,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean verificarAdministradorAcademico(String Id) {
         boolean centinela = false;
         for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
@@ -229,7 +238,6 @@ public class Academia {
         }
         return centinela;
     }
-
 
     //CRUD MATRICULA
 
@@ -243,7 +251,6 @@ public class Academia {
 
 
     }
-
     public boolean eliminarMatricula(String Id){
         boolean centinela = false;
         for (Matricula matricula : ListMatriculas){
@@ -255,7 +262,6 @@ public class Academia {
         }
         return centinela;
     }
-
     public boolean actualizarMatricula(String Id, Matricula actualizado){
         boolean centinela = false;
         for (Matricula Matricula : ListMatriculas){
@@ -267,8 +273,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
     public boolean verificarMatricula(String Id) {
         boolean centinela = false;
         for (Matricula Matricula : ListMatriculas) {
@@ -278,10 +282,6 @@ public class Academia {
         }
         return centinela;
     }
-
-
-
-
 
 }
 
