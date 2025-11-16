@@ -226,7 +226,7 @@ public class Academia {
     public boolean eliminarAdministradorAcademico (String Id) {
         boolean centinela = false;
         for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
-            if (AdministradorAcademico.getId().equals(id)) {
+            if (AdministradorAcademico.getId().equals(Id)) {
                 ListAdministradores.remove(AdministradorAcademico);
                 centinela = true;
                 break;
@@ -271,7 +271,7 @@ public class Academia {
     public boolean eliminarMatricula(String Id){
         boolean centinela = false;
         for (Matricula matricula : ListMatriculas){
-            if (Matricula.getId().equals(id)){
+            if (Matricula.getId().equals(Id)){
             ListMatriculas.remove(matricula);
             centinela = true;
             break;
@@ -340,7 +340,6 @@ public class Academia {
         return true;
     }
 
- // Gestion Horario
  public boolean cambiarHorarioCurso(String nombreCurso, Horario nuevoHorario) {
      Curso curso = null;
      for (Curso c : ListCursos) {

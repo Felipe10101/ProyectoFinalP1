@@ -30,7 +30,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         return nombreCurso;
     }
 
-    public void setnombreCurso(String nombre) {
+    public void setnombreCurso(String nombreCurso) {
         this.nombreCurso = nombreCurso;
     }
 
