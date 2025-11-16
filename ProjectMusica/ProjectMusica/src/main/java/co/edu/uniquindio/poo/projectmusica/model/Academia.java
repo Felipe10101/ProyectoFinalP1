@@ -20,11 +20,11 @@ public class Academia {
         this.ListMatriculas = new LinkedList<>();
     }
 
-    public String getNombre() {
+    public String getNombreCurso() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombreCurso(String nombre) {
         this.nombre = nombre;
     }
 
@@ -453,7 +453,39 @@ public class Academia {
             System.out.println("Error: no se pudo agregar el estudiante (reglas internas del curso).");
             return false;
         }
-        System.out.println("✔ Estudiante matriculado correctamente en " + curso.getnombreCurso());
+        System.out.println("Estudiante matriculado correctamente en " + curso.getnombreCurso());
+        return true;
+    }
+
+    public boolean asignarProfesorACurso(String idProfesor, String nombreCurso) {
+
+        Profesor profesor = obtenerProfesor(idProfesor);
+        if (profesor == null) {
+            System.out.println("Error: el profesor no existe.");
+            return false;
+        }
+
+        Curso curso = obtenerCurso(nombreCurso);
+        if (curso == null) {
+            System.out.println("Error: el curso no existe.");
+            return false;
+        }
+
+        if (curso.getProfesor() != null) {
+            System.out.println(" Error: el curso ya tiene un profesor asignado.");
+            return false;
+        }
+
+        for (Curso c : ListCursos) {
+            if (c != curso && c.getProfesor() != null && c.getProfesor().getId().equals(idProfesor)) {
+                if (c.getHorario().equals(curso.getHorario())) {
+                    System.out.println("Error: el profesor ya dicta otro curso en el mismo horario.");
+                    return false;
+                }
+            }
+        }
+        curso.setProfesor(profesor);
+        System.out.println("✔ Profesor asignado correctamente al curso: " + nombreCurso);
         return true;
     }
 

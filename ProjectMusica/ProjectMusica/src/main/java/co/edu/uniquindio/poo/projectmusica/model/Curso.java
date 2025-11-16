@@ -15,7 +15,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
     private LinkedList<Asistencia> listAsistencias;
     private LinkedList<ReporteProgreso> listReportes;
 
-    public Curso(String nombre, int cupo, Horario horario, Nivel nivel,TipoClase tipoClase) {
+    public Curso(String nombreCurso, int cupo, Horario horario, Nivel nivel,TipoClase tipoClase) {
         this.nombreCurso = nombreCurso;
         this.horario = horario;
         this.nivel = nivel;

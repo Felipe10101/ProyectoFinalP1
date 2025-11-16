@@ -30,7 +30,7 @@ public class ProfesorController {
             sb.append("Reporte de Progreso\n");
             sb.append("------------------------------\n");
             sb.append("Profesor: ").append(nombre).append("\n");
-            sb.append("Curso: ").append(curso.getNombre()).append("\n");
+            sb.append("Curso: ").append(curso.getnombreCurso()).append("\n");
             sb.append("Nivel: ").append(curso.getNivel()).append("\n");
             sb.append("Tipo de clase: ").append(curso.getTipoClase()).append("\n");
             sb.append("Comentario: ").append(comentario).append("\n");
