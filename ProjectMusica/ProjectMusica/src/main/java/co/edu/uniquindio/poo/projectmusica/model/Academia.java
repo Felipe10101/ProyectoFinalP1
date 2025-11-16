@@ -260,7 +260,7 @@ public class Academia {
 
     public boolean agregarMatricula(Matricula matricula){
         boolean centinela = false;
-        if (!verificarMatricula(Matricula.getId())){
+        if (!verificarMatricula(matricula.getId())){
             ListMatriculas.add(matricula);
             centinela = true;
         }
@@ -271,7 +271,7 @@ public class Academia {
     public boolean eliminarMatricula(String Id){
         boolean centinela = false;
         for (Matricula matricula : ListMatriculas){
-            if (Matricula.getId().equals(Id)){
+            if (matricula.getId().equals(Id)){
             ListMatriculas.remove(matricula);
             centinela = true;
             break;

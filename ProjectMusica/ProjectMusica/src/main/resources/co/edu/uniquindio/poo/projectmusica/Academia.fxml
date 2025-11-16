@@ -8,7 +8,7 @@
 <VBox spacing="20" alignment="CENTER"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="co.edu.uniquindio.poo.projectmusica.controller.AcademiaController">
+      fx:controller="co.edu.uniquindio.poo.projectmusica.viewcontroller.AcademiaViewController">
 
     <padding>
         <Insets top="40" bottom="40" left="40" right="40"/>
