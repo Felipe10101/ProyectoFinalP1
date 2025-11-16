@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public abstract class Curso implements IValidable, IReporteable, ICurso {
 
-    private String nombre;
+    private String nombreCurso;
     private Horario horario;
     private Nivel nivel;
     private Aula aula;
@@ -16,7 +16,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
     private LinkedList<ReporteProgreso> listReportes;
 
     public Curso(String nombre, int cupo, Horario horario, Nivel nivel,TipoClase tipoClase) {
-        this.nombre = nombre;
+        this.nombreCurso = nombreCurso;
         this.horario = horario;
         this.nivel = nivel;
         this.tipoClase = tipoClase;
@@ -26,12 +26,12 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
 
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getnombreCurso() {
+        return nombreCurso;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setnombreCurso(String nombre) {
+        this.nombreCurso = nombreCurso;
     }
 
 
@@ -107,8 +107,8 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         ListEstudiantesCurso = listEstudiantesCurso;
     }
 
-    public boolean agregarEstudiante(Estudiante estudiante, TipoClase tipoClase) {
-        if (verificarEstudiante(estudiante.getId())) {
+    public boolean agregarEstudianteCurso(Estudiante estudiante, TipoClase tipoClase) {
+        if (verificarEstudianteCurso(estudiante.getId())) {
             return false;
         }
         if (tipoClase == TipoClase.GRUPAL) {
@@ -126,7 +126,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
     }
 
 
-    public boolean eliminarEstudiante(String id) {
+    public boolean eliminarEstudianteCurso(String id) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
             if (estudiante.getId().equals(id)) {
                 ListEstudiantesCurso.remove(estudiante);
@@ -136,7 +136,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
         return false;
     }
 //
-    public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
+    public boolean actualizarEstudianteCurso(String Id, Estudiante actualizado) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
             if (estudiante.getId().equals(Id)) {
                 estudiante.setNombre(actualizado.getNombre());
@@ -150,7 +150,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
 
     //
 
-    public boolean verificarEstudiante(String Id) {
+    public boolean verificarEstudianteCurso(String Id) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
             if (estudiante.getId().equals(Id)) {
                 return true;

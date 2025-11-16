@@ -12,35 +12,27 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
         this.telefono = telefono;
         this.edad = edad;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
-
     public String getTelefono() {
         return telefono;
     }
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
     public int getEdad() {
         return edad;
     }
-
     public void setEdad(int edad) {
         this.edad = edad;
     }
@@ -77,6 +69,7 @@ public class Profesor implements IUsuario, IEvaluable, IHorarioGestionable {
 
     @Override
     public void gestionHorarios(Curso curso, Horario horario) {
-
+        System.out.println("Permiso denegado: los profesores no pueden cambiar horarios directamente.");
     }
+
 }

@@ -36,6 +36,23 @@ public class Academia {
         this.id = id;
     }
 
+    public LinkedList<Estudiante> getListEstudiantes() {
+        return ListEstudiantes;
+    }
+
+    public LinkedList<Profesor> getListProfesores() {
+        return ListProfesores;
+    }
+
+    public LinkedList<Curso> getListCursos() {
+        return ListCursos;
+    }
+
+    public LinkedList<Matricula> getListMatriculas() {
+        return ListMatriculas;
+    }
+
+
     // CRUD ESTUDIANTE
 
     public boolean agregarEstudiante(Estudiante Estudiante) {
@@ -166,7 +183,7 @@ public class Academia {
     public boolean eliminarCurso (String nombre) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
-            if (Curso.getNombre().equals(nombre)) {
+            if (Curso.getnombreCurso().equals(nombre)) {
                 ListCursos.remove(Curso);
                 centinela = true;
                 break;
@@ -177,7 +194,7 @@ public class Academia {
     public boolean actualizarCurso(String nombre,Curso actualizado) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
-            if (Curso.getNombre().equals(nombre)) {
+            if (Curso.getnombreCurso().equals(nombre)) {
                 Curso.setHorario(actualizado.getHorario());
                 Curso.setNivel(actualizado.getNivel());
                 centinela = true;
@@ -189,7 +206,7 @@ public class Academia {
     public boolean verificarCurso(String Nombre) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
-            if (Curso.getNombre().equals(Nombre)) {
+            if (Curso.getnombreCurso().equals(Nombre)) {
                 centinela = true;
             }
         }
@@ -286,10 +303,9 @@ public class Academia {
     // ASIGNAR CURSO
 
     public boolean asignarAulaACurso(String nombreCurso, Aula aula) {
-
         Curso curso = null;
         for (Curso c : ListCursos) {
-            if (c.getNombre().equals(nombreCurso)) {
+            if (c.getnombreCurso().equals(nombreCurso)) {
                 curso = c;
                 break;
             }
@@ -298,13 +314,13 @@ public class Academia {
             System.out.println("Error: el curso no existe.");
             return false;
         }
-        if (curso.getCupo() > aula.Capacidad()) {
+        if (curso.getCupo() > aula.capacidad()) {
             System.out.println("Error: el aula no tiene capacidad suficiente.");
             return false;
         }
         for (Curso c : ListCursos) {
             if (c.getAula() != null && c.getAula().equals(aula)) {
-                if (c.getHorario() == curso.getHorario()) {
+                if (c.getHorario().equals(curso.getHorario())) {
                     System.out.println("Error: el aula ya está ocupada en ese horario.");
                     return false;
                 }
@@ -313,7 +329,7 @@ public class Academia {
         Profesor profesor = curso.getProfesor();
         for (Curso c : ListCursos) {
             if (c != curso && c.getProfesor().equals(profesor)) {
-                if (c.getHorario() == curso.getHorario()) {
+                if (c.getHorario().equals(curso.getHorario())){
                     System.out.println("Error: el profesor ya dicta otro curso en ese horario.");
                     return false;
                 }
@@ -324,10 +340,122 @@ public class Academia {
         return true;
     }
 
+ // Gestion Horario
+ public boolean cambiarHorarioCurso(String nombreCurso, Horario nuevoHorario) {
+     Curso curso = null;
+     for (Curso c : ListCursos) {
+         if (c.getnombreCurso().equals(nombreCurso)) {
+             curso = c;
+             break;
+         }
+     }
+     if (curso == null) {
+         System.out.println("Error: el curso no existe.");
+         return false;
+     }
+     Profesor profesor = curso.getProfesor();
+     for (Curso c : ListCursos) {
+         if (c != curso && c.getProfesor() != null && c.getProfesor().equals(profesor)) {
+             if (c.getHorario().equals(nuevoHorario)) {
+                 System.out.println("Error: el profesor ya tiene un curso en ese horario (" + nuevoHorario + ").");
+                 return false;
+             }
+         }
+     }
+     if (curso.getAula() != null) {
+         Aula aula = curso.getAula();
+         for (Curso c : ListCursos) {
+             if (c != curso && c.getAula() != null && c.getAula().equals(aula)) {
+                 if (c.getHorario().equals(nuevoHorario)) {
+                     System.out.println("Error: el aula ya está ocupada en ese horario (" + nuevoHorario + ").");
+                     return false;
+                 }
+             }
+         }
+     }
+     curso.setHorario(nuevoHorario);
+     System.out.println("✔ Horario actualizado correctamente para el curso: " + nombreCurso + " -> " + nuevoHorario);
+     return true;
+ }
 
+    public Estudiante obtenerEstudiante(String id) {
+        for (Estudiante e : ListEstudiantes) {
+            if (e.getId().equals(id)) return e;
+        }
+        return null;
+    }
 
+    public Profesor obtenerProfesor(String id) {
+        for (Profesor p : ListProfesores) {
+            if (p.getId().equals(id)) return p;
+        }
+        return null;
+    }
 
+    public Curso obtenerCurso(String nombre) {
+        for (Curso c : ListCursos) {
+            if (c.getnombreCurso().equals(nombre)) return c;
+        }
+        return null;
+    }
+
+    public AdministradorAcademico obtenerAdmin(String id) {
+        for (AdministradorAcademico a : ListAdministradores) {
+            if (a.getId().equals(id)) return a;
+        }
+        return null;
+    }
+
+    public Matricula obtenerMatricula(String id) {
+        for (Matricula m : ListMatriculas) {
+            if (m.getId().equals(id)) return m;
+        }
+        return null;
+    }
+
+    public boolean matricularEstudiante(String idEstudiante, String nombreCurso){
+        Estudiante est = obtenerEstudiante(idEstudiante);
+        if (est == null) {
+            System.out.println("Error: el estudiante no existe.");
+            return false;
+        }
+        Curso curso = obtenerCurso(nombreCurso);
+        if (curso == null) {
+            System.out.println("Error: el curso no existe.");
+            return false;
+        }
+        if (curso.verificarEstudianteCurso(est.getId())) {
+            System.out.println("Error: el estudiante ya está inscrito en este curso.");
+            return false;
+        }
+        if (curso.getTipoClase() == TipoClase.GRUPAL) {
+            if (curso.getListEstudiantesCurso().size() >= curso.getCupo()) {
+                System.out.println("Error: no hay cupos disponibles en este curso.");
+                return false;
+            }
+        } else {
+            if (curso.getListEstudiantesCurso().size() >= 1) {
+                System.out.println("Error: este curso individual ya tiene asignado un estudiante.");
+                return false;
+            }
+        }
+        for (Curso c : ListCursos) {
+            if (c.getListEstudiantesCurso().contains(est)) {
+                if (c.getHorario().equals(curso.getHorario())) {
+                    System.out.println("Error: el estudiante tiene otro curso en el mismo horario (" + curso.getHorario() + ").");
+                    return false;
+                }
+            }
+        }
+        boolean agregado = curso.agregarEstudianteCurso(est, curso.getTipoClase());
+
+        if (!agregado) {
+            System.out.println("Error: no se pudo agregar el estudiante (reglas internas del curso).");
+            return false;
+        }
+        System.out.println("✔ Estudiante matriculado correctamente en " + curso.getnombreCurso());
+        return true;
+    }
 
 }
-
 

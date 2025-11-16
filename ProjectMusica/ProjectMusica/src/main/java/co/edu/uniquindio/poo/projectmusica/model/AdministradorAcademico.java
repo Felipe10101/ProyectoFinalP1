@@ -22,13 +22,18 @@ public class AdministradorAcademico implements IUsuario, IHorarioGestionable, IR
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-
-
+    public boolean asignarAula(String nombreCurso, Aula aula) {
+        return academia.asignarAulaACurso(nombreCurso, aula);
+    }
 
     @Override
-    public void gestionHorarios(Curso curso, Horario horario) {
-
+    public void gestionHorarios(Curso curso, Horario nuevoHorario) {
+        boolean ok = academia.cambiarHorarioCurso(curso.getNombre(), nuevoHorario);
+        if (!ok) {
+            System.out.println("No se pudo cambiar el horario para el curso: " + curso.getNombre());
+        }
     }
+
 
     @Override
     public void generarReporte(Curso curso) {
