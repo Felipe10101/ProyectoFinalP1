@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.projectmusica.model;
+import java.util.Iterator;
 import java.util.LinkedList;
 import co.edu.uniquindio.poo.projectmusica.model.*;
 
@@ -63,17 +64,18 @@ public class Academia {
         }
         return centinela;
     }
-    public boolean eliminarEstudiante (String id) {
-        boolean centinela = false;
-        for (Estudiante Estudiante : ListEstudiantes) {
-            if (Estudiante.getId().equals(id)) {
-                ListEstudiantes.remove(Estudiante);
-                centinela = true;
-                break;
+    public boolean eliminarEstudiante(String id) {
+        Iterator<Estudiante> iterator = ListEstudiantes.iterator();
+        while (iterator.hasNext()) {
+            Estudiante e = iterator.next();
+            if (e.getId().equals(id)) {
+                iterator.remove(); // ✔ correcto
+                return true;
             }
         }
-        return centinela;
+        return false;
     }
+
     public boolean actualizarEstudiante(String Id, Estudiante actualizado) {
         boolean centinela = false;
         for (Estudiante Estudiante : ListEstudiantes) {
@@ -97,7 +99,7 @@ public class Academia {
         return centinela;
     }
 
-    // CRUD PROFESORES
+    // CRUD PROFESOR
 
     public boolean agregarProfesor(Profesor Profesor) {
         boolean centinela = false;
@@ -107,16 +109,16 @@ public class Academia {
         }
         return centinela;
     }
-    public boolean eliminarProfesor (String cedula) {
-        boolean centinela = false;
-        for (Profesor Profesor : ListProfesores) {
-            if (Profesor.getId().equals(cedula)) {
-                ListProfesores.remove(Profesor);
-                centinela = true;
-                break;
+    public boolean eliminarProfesor(String id) {
+        Iterator<Profesor> iterator = ListProfesores.iterator();
+        while (iterator.hasNext()) {
+            Profesor e = iterator.next();
+            if (e.getId().equals(id)) {
+                iterator.remove();
+                return true;
             }
         }
-        return centinela;
+        return false;
     }
     public boolean actualizarProfesor(String Id, Profesor actualizado) {
         boolean centinela = false;
@@ -180,16 +182,16 @@ public class Academia {
         return curso;
     }
 
-    public boolean eliminarCurso (String nombre) {
-        boolean centinela = false;
-        for (Curso Curso : ListCursos) {
-            if (Curso.getnombreCurso().equals(nombre)) {
-                ListCursos.remove(Curso);
-                centinela = true;
-                break;
+    public boolean eliminarCurso(String id) {
+        Iterator<Curso> iterator = ListCursos.iterator();
+        while (iterator.hasNext()) {
+            Curso e = iterator.next();
+            if (e.getId().equals(id)) {
+                iterator.remove();
+                return true;
             }
         }
-        return centinela;
+        return false;
     }
     public boolean actualizarCurso(String nombre,Curso actualizado) {
         boolean centinela = false;
@@ -223,16 +225,16 @@ public class Academia {
         }
         return centinela;
     }
-    public boolean eliminarAdministradorAcademico (String Id) {
-        boolean centinela = false;
-        for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
-            if (AdministradorAcademico.getId().equals(Id)) {
-                ListAdministradores.remove(AdministradorAcademico);
-                centinela = true;
-                break;
+    public boolean eliminarAdministradorAcademico(String id) {
+        Iterator<AdministradorAcademico> iterator = ListAdministradores.iterator();
+        while (iterator.hasNext()) {
+            AdministradorAcademico e = iterator.next();
+            if (e.getId().equals(id)) {
+                iterator.remove();
+                return true;
             }
         }
-        return centinela;
+        return false;
     }
     public boolean actualizarAdministradorAcademico(String Id, AdministradorAcademico actualizado) {
         boolean centinela = false;
@@ -259,47 +261,46 @@ public class Academia {
     //CRUD MATRICULA
 
     public boolean agregarMatricula(Matricula matricula){
-        boolean centinela = false;
         if (!verificarMatricula(matricula.getId())){
             ListMatriculas.add(matricula);
-            centinela = true;
+            return true;
         }
-        return centinela;
-
-
+        return false;
     }
+
+
     public boolean eliminarMatricula(String Id){
-        boolean centinela = false;
-        for (Matricula matricula : ListMatriculas){
-            if (matricula.getId().equals(Id)){
-            ListMatriculas.remove(matricula);
-            centinela = true;
-            break;
+        Iterator<Matricula> iterator = ListMatriculas.iterator();
+        while (iterator.hasNext()) {
+            Matricula m = iterator.next();
+            if (m.getId().equals(Id)) {
+                iterator.remove();
+                return true;
             }
         }
-        return centinela;
-    }
-    public boolean actualizarMatricula(String Id, Matricula actualizado){
-        boolean centinela = false;
-        for (Matricula Matricula : ListMatriculas){
-            if ( Matricula.getId().equals(Id)){
-                Matricula.setFecha(actualizado.getFecha());
-                    centinela = true;
-                    break ;
-            }
-        }
-        return centinela;
-    }
-    public boolean verificarMatricula(String Id) {
-        boolean centinela = false;
-        for (Matricula Matricula : ListMatriculas) {
-            if (Matricula.getId().equals(Id)) {
-                centinela = true;
-            }
-        }
-        return centinela;
+        return false;
     }
 
+
+    public boolean actualizarMatricula(String Id, Matricula actualizado){
+        for (Matricula m : ListMatriculas){
+            if (m.getId().equals(Id)){
+                m.setFecha(actualizado.getFecha());
+                // si tu clase tiene más atributos, agrégalos aquí
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean verificarMatricula(String Id) {
+        for (Matricula m : ListMatriculas) {
+            if (m.getId().equals(Id)) {
+                return true;
+            }
+        }
+        return false;
+    }
     // ASIGNAR CURSO
 
     public boolean asignarAulaACurso(String nombreCurso, Aula aula) {
