@@ -56,10 +56,10 @@ public class Academia {
 
     // CRUD ESTUDIANTE
 
-    public boolean agregarEstudiante(Estudiante Estudiante) {
+    public boolean agregarEstudiante(Estudiante estudiante) {
         boolean centinela = false;
-        if (!verificarEstudiante(Estudiante.getId())) {
-            ListEstudiantes.add(Estudiante);
+        if (!verificarEstudiante(estudiante.getId())) {
+            ListEstudiantes.add(estudiante);
             centinela = true;
         }
         return centinela;

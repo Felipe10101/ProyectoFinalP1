@@ -6,9 +6,119 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.poo.projectmusica.AdministradorAcademico"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="co.edu.uniquindio.poo.projectmusica.viewcontroller.AdministradorAcademicoViewController">
 
-</AnchorPane>
+    <!-- TITULO -->
+    <top>
+        <Label text="Administrador Académico"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 15;" />
+    </top>
+
+    <!-- CONTENIDO CENTRAL -->
+    <center>
+        <TabPane>
+
+            <!-- ========================== ESTUDIANTES ========================== -->
+            <Tab text="Estudiantes">
+                <BorderPane>
+
+                    <!-- TABLA -->
+                    <center>
+                        <TableView fx:id="tablaEstudiantes">
+                            <columns>
+                                <TableColumn fx:id="colEstId" text="ID" prefWidth="120"/>
+                                <TableColumn fx:id="colEstNombre" text="Nombre" prefWidth="180"/>
+                            </columns>
+                        </TableView>
+                    </center>
+
+                    <!-- FORMULARIO -->
+                    <right>
+                        <VBox spacing="10" padding="15">
+                            <Label text="Gestión de Estudiantes" style="-fx-font-weight: bold"/>
+
+                            <TextField fx:id="txtEstId" promptText="ID"/>
+                            <TextField fx:id="txtEstNombre" promptText="Nombre"/>
+                            <TextField fx:id="txtEstTelefono" promptText="Teléfono"/>
+                            <TextField fx:id="txtEstEdad" promptText="Edad"/>
+
+                            <HBox spacing="10">
+                                <Button text="Agregar" onAction="#onAgregarEstudiante"/>
+                                <Button text="Actualizar" onAction="#onActualizarEstudiante"/>
+                            </HBox>
+
+                            <Button text="Eliminar" onAction="#onEliminarEstudiante"
+                                    style="-fx-background-color: #d9534f; -fx-text-fill: white;"/>
+                        </VBox>
+                    </right>
+
+                </BorderPane>
+            </Tab>
+
+            <!-- ========================== PROFESORES ========================== -->
+            <Tab text="Profesores">
+                <BorderPane>
+
+                    <!-- TABLA -->
+                    <center>
+                        <TableView fx:id="tablaProfesores">
+                            <columns>
+                                <TableColumn fx:id="colProfId" text="ID" prefWidth="120"/>
+                                <TableColumn fx:id="colProfNombre" text="Nombre" prefWidth="180"/>
+                            </columns>
+                        </TableView>
+                    </center>
+
+                    <!-- FORM -->
+                    <right>
+                        <VBox spacing="10" padding="15">
+                            <Label text="Gestión de Profesores" style="-fx-font-weight: bold"/>
+
+                            <TextField fx:id="txtProfId" promptText="ID"/>
+                            <TextField fx:id="txtProfNombre" promptText="Nombre"/>
+                            <TextField fx:id="txtProfTelefono" promptText="Teléfono"/>
+                            <TextField fx:id="txtProfEdad" promptText="Edad"/>
+
+                            <HBox spacing="10">
+                                <Button text="Agregar" onAction="#onAgregarProfesor"/>
+                                <Button text="Actualizar" onAction="#onActualizarProfesor"/>
+                            </HBox>
+
+                            <Button text="Eliminar" onAction="#onEliminarProfesor"
+                                    style="-fx-background-color: #d9534f; -fx-text-fill: white;"/>
+                        </VBox>
+                    </right>
+
+                </BorderPane>
+            </Tab>
+
+            <!-- ========================== CURSOS ========================== -->
+            <Tab text="Cursos">
+                <BorderPane>
+
+                    <!-- TABLA -->
+                    <center>
+                        <TableView fx:id="tablaCursos">
+                            <columns>
+                                <TableColumn fx:id="colCursoNombre" text="Nombre del Curso" prefWidth="200"/>
+                                <TableColumn fx:id="colCursoCupo" text="Cupo" prefWidth="80"/>
+                            </columns>
+                        </TableView>
+                    </center>
+
+                    <!-- CONTROLES -->
+                    <right>
+                        <VBox spacing="10" padding="15">
+                            <Button text="Refrescar Cursos" onAction="#onRefrescarCursos"/>
+                        </VBox>
+                    </right>
+
+                </BorderPane>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>

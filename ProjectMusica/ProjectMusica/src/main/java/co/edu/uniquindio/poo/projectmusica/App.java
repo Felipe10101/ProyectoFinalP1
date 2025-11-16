@@ -11,15 +11,10 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) {
-        try {
-            scene = new Scene(loadFXML("academia"));
-            stage.setScene(scene);
-            stage.setTitle("Academia UQ Música");
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void start(Stage stage) throws IOException {
+        scene = new Scene(loadFXML("academia"));
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void setRoot(String fxml) {

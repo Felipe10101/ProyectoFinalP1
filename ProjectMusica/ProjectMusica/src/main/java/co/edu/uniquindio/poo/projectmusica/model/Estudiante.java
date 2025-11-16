@@ -64,7 +64,7 @@ public class Estudiante implements IInscribible{
         this.nombre = nombre;
     }
 
-    public String getId() {
+    public static String getId() {
         return id;
     }
 
