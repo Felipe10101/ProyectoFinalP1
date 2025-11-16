@@ -26,11 +26,11 @@ public abstract class Curso implements IValidable, ICurso {
 
     }
 
-    public String getnombreCurso() {
+    public String getNombreCurso() {
         return nombreCurso;
     }
 
-    public void setnombreCurso(String nombreCurso) {
+    public void setNombreCurso(String nombreCurso) {
         this.nombreCurso = nombreCurso;
     }
 

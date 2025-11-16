@@ -182,21 +182,21 @@ public class Academia {
         return curso;
     }
 
-    public boolean eliminarCurso(String id) {
+    public boolean eliminarCurso(String nombreCurso) {
         Iterator<Curso> iterator = ListCursos.iterator();
         while (iterator.hasNext()) {
             Curso e = iterator.next();
-            if (e.getId().equals(id)) {
+            if (e.getNombreCurso().equals(nombreCurso)) {
                 iterator.remove();
                 return true;
             }
         }
         return false;
     }
-    public boolean actualizarCurso(String nombre,Curso actualizado) {
+    public boolean actualizarCurso(String nombreCurso,Curso actualizado) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
-            if (Curso.getnombreCurso().equals(nombre)) {
+            if (Curso.getNombreCurso().equals(nombreCurso)) {
                 Curso.setHorario(actualizado.getHorario());
                 Curso.setNivel(actualizado.getNivel());
                 centinela = true;
@@ -205,10 +205,10 @@ public class Academia {
         }
         return centinela;
     }
-    public boolean verificarCurso(String Nombre) {
+    public boolean verificarCurso(String nombreCurso) {
         boolean centinela = false;
         for (Curso Curso : ListCursos) {
-            if (Curso.getnombreCurso().equals(Nombre)) {
+            if (Curso.getNombreCurso().equals(nombreCurso)) {
                 centinela = true;
             }
         }
@@ -240,8 +240,7 @@ public class Academia {
         boolean centinela = false;
         for (AdministradorAcademico AdministradorAcademico : ListAdministradores) {
             if (AdministradorAcademico.getId().equals(Id)) {
-                AdministradorAcademico.setUsuario(actualizado.getUsuario());
-                AdministradorAcademico.setPassword(actualizado.getPassword());
+                AdministradorAcademico.setUser(actualizado.getUser());
                 centinela = true;
                 break;
             }
@@ -306,7 +305,7 @@ public class Academia {
     public boolean asignarAulaACurso(String nombreCurso, Aula aula) {
         Curso curso = null;
         for (Curso c : ListCursos) {
-            if (c.getnombreCurso().equals(nombreCurso)) {
+            if (c.getNombreCurso().equals(nombreCurso)) {
                 curso = c;
                 break;
             }
@@ -344,7 +343,7 @@ public class Academia {
  public boolean cambiarHorarioCurso(String nombreCurso, Horario nuevoHorario) {
      Curso curso = null;
      for (Curso c : ListCursos) {
-         if (c.getnombreCurso().equals(nombreCurso)) {
+         if (c.getNombreCurso().equals(nombreCurso)) {
              curso = c;
              break;
          }
@@ -394,7 +393,7 @@ public class Academia {
 
     public Curso obtenerCurso(String nombre) {
         for (Curso c : ListCursos) {
-            if (c.getnombreCurso().equals(nombre)) return c;
+            if (c.getNombreCurso().equals(nombre)) return c;
         }
         return null;
     }
@@ -453,7 +452,7 @@ public class Academia {
             System.out.println("Error: no se pudo agregar el estudiante (reglas internas del curso).");
             return false;
         }
-        System.out.println("Estudiante matriculado correctamente en " + curso.getnombreCurso());
+        System.out.println("Estudiante matriculado correctamente en " + curso.getNombreCurso());
         return true;
     }
 

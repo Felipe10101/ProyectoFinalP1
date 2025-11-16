@@ -6,12 +6,15 @@ public class Profesor implements IEvaluable, IHorarioGestionable {
     private String nombre, id, telefono;
     private int edad;
     private Horario Horario;
+    private Academia academia;
 
     public Profesor(String nombre, String id, String telefono, int edad) {
         this.nombre = nombre;
         this.id = id;
         this.telefono = telefono;
         this.edad = edad;
+        this.academia = academia;
+
     }
     public String getNombre() {
         return nombre;
@@ -37,6 +40,12 @@ public class Profesor implements IEvaluable, IHorarioGestionable {
     }
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+    public Academia getAcademia() {
+        return academia;
+    }
+    public void setAcademia(Academia academia) {
+        this.academia = academia;
     }
 
 
