@@ -2,17 +2,21 @@ package co.edu.uniquindio.poo.projectmusica.model;
 
 public class AdministradorAcademico implements IHorarioGestionable, IReporteable {
 
-    private String id;
+    private String user;
     private Academia academia;
 
-    public AdministradorAcademico( String id, Academia academia) {
-        this.id = id;
+    public AdministradorAcademico( String user, Academia academia) {
+        this.user = user;
         this.academia = academia;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getUser() {
+        return user;
+    }
 
+    public void setUser(String user) {
+        this.user = user;
+    }
 
     public boolean agregarEstudiante(Estudiante e) {
         return academia.agregarEstudiante(e);
