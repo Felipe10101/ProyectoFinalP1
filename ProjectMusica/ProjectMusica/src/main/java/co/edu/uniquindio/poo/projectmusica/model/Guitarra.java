@@ -1,13 +1,11 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
-import java.time.LocalDate;
-
 public class Guitarra extends Curso{
     private String tipoCuerda, afinacion;
     private int cuerdas;
 
-    public Guitarra(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,String afinacion, String tipoCuerda, int cuerdas) {
-        super(nombre, cupo, tipoClase, horario, nivel);
+    public Guitarra(String nombreCurso, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,String afinacion, String tipoCuerda, int cuerdas) {
+        super(nombreCurso, cupo, horario, nivel);
         this.tipoCuerda = tipoCuerda;
         this.afinacion = afinacion;
         this.cuerdas = cuerdas;
@@ -37,9 +35,6 @@ public class Guitarra extends Curso{
         this.cuerdas = cuerdas;
     }
 
-    @Override
-    public void crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
-
-    }
 }
+
 

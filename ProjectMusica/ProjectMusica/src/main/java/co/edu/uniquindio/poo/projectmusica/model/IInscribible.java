@@ -1,7 +1,6 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
 public interface IInscribible {
-    void asignacionCursos(Curso curso);
-    void cancelacionCursos(Curso curso);
-
+    void inscripcionCurso(Estudiante estudiante);
+    void cancelacionCurso();
 }

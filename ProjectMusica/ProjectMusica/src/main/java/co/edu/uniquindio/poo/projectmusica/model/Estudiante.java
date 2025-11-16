@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.projectmusica.model;
 
-public class Estudiante implements IUsuario, IReporteable {
+public class Estudiante implements IInscribible{
     private String nombre, id, telefono;
     private int edad;
 
@@ -41,11 +41,5 @@ public class Estudiante implements IUsuario, IReporteable {
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-    
-
-    @Override
-    public void generarReporte(Curso curso) {
-
     }
 }

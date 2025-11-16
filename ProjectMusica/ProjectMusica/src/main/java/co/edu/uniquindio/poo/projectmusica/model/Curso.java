@@ -2,7 +2,7 @@ package co.edu.uniquindio.poo.projectmusica.model;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public abstract class Curso implements IValidable, IReporteable, ICurso {
+public abstract class Curso implements IValidable, ICurso {
 
     private String nombreCurso;
     private Horario horario;
@@ -15,7 +15,7 @@ public abstract class Curso implements IValidable, IReporteable, ICurso {
     private LinkedList<Asistencia> listAsistencias;
     private LinkedList<ReporteProgreso> listReportes;
 
-    public Curso(String nombreCurso, int cupo, Horario horario, Nivel nivel,TipoClase tipoClase) {
+    public Curso(String nombreCurso, int cupo, Horario horario, Nivel nivel) {
         this.nombreCurso = nombreCurso;
         this.horario = horario;
         this.nivel = nivel;
