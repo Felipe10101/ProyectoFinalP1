@@ -140,4 +140,25 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
         System.out.println("Profesor: " + (curso.getProfesor() != null ? curso.getProfesor().getNombre() : "No asignado"));
         System.out.println("============================");
     }
+
+    // ==========================
+//  CRUD AULAS (Administrador)
+// ==========================
+
+    public boolean crearAula(String nombre, int capacidad, Double estado) {
+        return academia.crearAula(nombre, capacidad,estado);
+    }
+
+    public boolean eliminarAula(String nombre) {
+        return academia.eliminarAula(nombre);
+    }
+
+    public boolean actualizarAula(String nombre, int capacidad, Double estado) {
+        return academia.actualizarAula(nombre, capacidad, estado);
+    }
+
+    public Aula obtenerAula(String nombre) {
+        return academia.obtenerAula(nombre);
+    }
+
 }
