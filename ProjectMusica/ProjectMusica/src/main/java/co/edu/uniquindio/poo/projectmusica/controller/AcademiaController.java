@@ -8,15 +8,14 @@ import javafx.scene.control.Label;
 
 public class AcademiaController {
 
-    public void abrirVistaEstudiante() {
-        App.setRoot("Estudiante");
+    private final Academia academia;
+
+    public AcademiaController(Academia academia) {
+        this.academia = academia;
     }
 
-    public void abrirVistaProfesor() {
-        App.setRoot("Profesor");
+    public Academia getAcademia() {
+        return academia;
     }
 
-    public void abrirVistaAdmin() {
-        App.setRoot("AdministradorAcademico");
-    }
 }
