@@ -159,6 +159,44 @@ public abstract class Curso implements IValidable, ICurso {
         return false;
     }
 
+
+    public void generarReporte() {
+        System.out.println("REPORTE DEL CURSO ");
+        System.out.println("Curso: " + getNombreCurso());
+        System.out.println("Horario: " + getHorario());
+        System.out.println("Nivel: " + getNivel());
+        System.out.println("Tipo: " + getTipoClase());
+        System.out.println("Cupo: " + getCupo());
+        System.out.println("Inscritos: " + getListEstudiantesCurso().size());
+        System.out.println("Profesor: " + (getProfesor() != null ? getProfesor().getNombre() : "No asignado"));
+
+        if (listReportes == null || listReportes.isEmpty()) {
+            System.out.println("No hay reportes de progreso.");
+        } else {
+            System.out.println("Reportes de Progreso:");
+            int i = 1;
+            for (ReporteProgreso r : listReportes) {
+                System.out.println("  [" + i++ + "]");
+                System.out.println("    Comentario: " + r.comentario());
+                System.out.println("    Nota      : " + r.nota());
+                System.out.println("    Fecha     : " + r.fecha());
+            }
+        }
+        if (listAsistencias == null || listAsistencias.isEmpty()) {
+            System.out.println("No hay registros de asistencia.");
+        } else {
+            int presentes = 0;
+            System.out.println("Asistencias:");
+            int idx = 1;
+            for (Asistencia a : listAsistencias) {
+                System.out.println("  [" + (idx++) + "] " + a.fecha() + " - " + (a.presente() ? "Presente" : "Ausente"));
+                if (a.presente()) presentes++;
+            }
+            System.out.println("Asistencias totales: " + presentes + "/" + listAsistencias.size());
+        }
+        System.out.println(" FIN DEL REPORTE");
+    }
+
     @Override
     public boolean validarInscripcion(Estudiante estudiante, Curso curso) {
         // Regla: no repetir estudiante
