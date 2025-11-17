@@ -62,13 +62,26 @@ public class Profesor implements IEvaluable, IHorarioGestionable {
 
     @Override
     public boolean registrarProgreso(Curso curso, String descripcion, double nota) {
-        return false;
+
+        if (curso == null) return false;
+        if (nota < 0 || nota > 5) {
+            System.out.println("Error: la nota debe estar entre 0 y 5.");
+            return false;
+        }
+
+        ReporteProgreso reporte = new ReporteProgreso(descripcion, nota, LocalDate.now());
+        curso.getListReportes().add(reporte);
+
+        System.out.println("✔ Progreso registrado en curso: " + curso.getNombreCurso());
+        return true;
     }
 
     @Override
     public LinkedList<ReporteProgreso> consultarProgreso(Curso curso) {
-        return null;
+        if (curso == null) return new LinkedList<>();
+        return curso.getListReportes();
     }
+
 
     @Override
     public boolean crearComentario(String comentario, double nota, LocalDate fecha, Curso curso, Estudiante estudiante) {
@@ -77,11 +90,42 @@ public class Profesor implements IEvaluable, IHorarioGestionable {
 
     @Override
     public boolean registrarAsistencia(Curso curso, Estudiante estudiante, boolean presente, Profesor profesor) {
-        return false;
+
+        if (curso == null || estudiante == null) {
+            System.out.println("Error: curso o estudiante es null.");
+            return false;
+        }
+        if (curso.getProfesor() == null || !curso.getProfesor().equals(this)) {
+            System.out.println("Error: este profesor no está asignado al curso.");
+            return false;
+        }
+        if (!curso.verificarEstudianteCurso(estudiante.getId())) {
+            System.out.println("Error: el estudiante no pertenece al curso.");
+            return false;
+        }
+        Asistencia asistencia = new Asistencia(LocalDate.now(), presente);
+        curso.getListAsistencias().add(asistencia);
+
+        System.out.println("Asistencia registrada para: " + estudiante.getNombre());
+        return true;
     }
 
+
     @Override
-    public boolean valorarProgreso(Curso curso, Estudiante estudiante, double notaFinal, String mensaje) {
-        return false;
+    public boolean valorarProgreso(Curso curso, Estudiante estudiante, double nota, String mensaje) {
+
+        if (curso == null || estudiante == null) return false;
+
+        if (nota < 0 || nota > 5) {
+            System.out.println("Error: nota fuera de rango.");
+            return false;
+        }
+
+        ReporteProgreso finalReport = new ReporteProgreso(mensaje, nota, LocalDate.now());
+        curso.getListReportes().add(finalReport);
+
+        System.out.println("Valoración final registrada para " + estudiante.getNombre());
+        return true;
     }
+
 }

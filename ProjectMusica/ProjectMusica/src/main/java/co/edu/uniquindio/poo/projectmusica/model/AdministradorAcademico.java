@@ -117,9 +117,9 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
 
     @Override
     public void gestionHorarios(Curso curso, Horario nuevoHorario) {
-        boolean ok = academia.cambiarHorarioCurso(curso.getnombreCurso(), nuevoHorario);
+        boolean ok = academia.cambiarHorarioCurso(curso.getNombreCurso(), nuevoHorario);
         if (!ok) {
-            System.out.println("No se pudo cambiar el horario para el curso: " + curso.getnombreCurso());
+            System.out.println("No se pudo cambiar el horario para el curso: " + curso.getNombreCurso());
         }
     }
 
@@ -131,7 +131,7 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
     @Override
     public void generarReporte(Curso curso) {
         System.out.println("==== REPORTE DEL CURSO ====");
-        System.out.println("Curso: " + curso.getnombreCurso());
+        System.out.println("Curso: " + curso.getNombreCurso());
         System.out.println("Horario: " + curso.getHorario());
         System.out.println("Nivel: " + curso.getNivel());
         System.out.println("Tipo: " + curso.getTipoClase());

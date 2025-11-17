@@ -10,6 +10,7 @@ public class Academia {
     private LinkedList<Profesor> ListProfesores;
     private LinkedList<AdministradorAcademico> ListAdministradores;
     private LinkedList<Matricula> ListMatriculas;
+    private LinkedList<ReporteProgreso> ListReportes;
 
     public Academia(String nombre, String id) {
         this.nombre = nombre;
@@ -19,6 +20,7 @@ public class Academia {
         this.ListProfesores= new LinkedList<>();
         this.ListAdministradores = new LinkedList<>();
         this.ListMatriculas = new LinkedList<>();
+        this.ListReportes = new LinkedList<>();
     }
 
     public String getNombreCurso() {
@@ -51,6 +53,10 @@ public class Academia {
 
     public LinkedList<Matricula> getListMatriculas() {
         return ListMatriculas;
+    }
+
+    public LinkedList<ReporteProgreso> getListReportes() {
+        return ListReportes;
     }
 
 
@@ -300,7 +306,6 @@ public class Academia {
         }
         return false;
     }
-    // ASIGNAR CURSO
 
     public boolean asignarAulaACurso(String nombreCurso, Aula aula) {
         Curso curso = null;
