@@ -128,20 +128,16 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
         return false;
     }
 
+
     @Override
     public void generarReporte(Curso curso) {
-        System.out.println("==== REPORTE DEL CURSO ====");
-        System.out.println("Curso: " + curso.getNombreCurso());
-        System.out.println("Horario: " + curso.getHorario());
-        System.out.println("Nivel: " + curso.getNivel());
-        System.out.println("Tipo: " + curso.getTipoClase());
-        System.out.println("Cupo: " + curso.getCupo());
-        System.out.println("Inscritos: " + curso.getListEstudiantesCurso().size());
-        System.out.println("Profesor: " + (curso.getProfesor() != null ? curso.getProfesor().getNombre() : "No asignado"));
-        System.out.println("============================");
-    }
+        if (curso == null) {
+            System.out.println("Error: curso nulo.");
+            return;
+        }
 
-//  CRUD AULAS (Administrador)
+        curso.generarReporte();
+    }
 
 
     public boolean crearAula(String nombre, int capacidad, Double estado) {
