@@ -141,9 +141,8 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
         System.out.println("============================");
     }
 
-    // ==========================
 //  CRUD AULAS (Administrador)
-// ==========================
+
 
     public boolean crearAula(String nombre, int capacidad, Double estado) {
         return academia.crearAula(nombre, capacidad,estado);

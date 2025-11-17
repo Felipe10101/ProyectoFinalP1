@@ -36,5 +36,5 @@ public class Piano extends Curso{
         this.requierePedales = requierePedales;
     }
 
-    }
 }
+
