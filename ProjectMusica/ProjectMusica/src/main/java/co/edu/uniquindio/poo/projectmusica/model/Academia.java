@@ -519,7 +519,6 @@ public class Academia {
             Aula a = it.next();
             if (a.nombre().equals(nombre)) {
 
-                // Validar que no esté asignada a ningún curso
                 for (Curso c : ListCursos) {
                     if (c.getAula() != null && c.getAula().equals(a)) {
                         System.out.println("Error: no se puede eliminar el aula, está asignada al curso " + c.getNombreCurso());

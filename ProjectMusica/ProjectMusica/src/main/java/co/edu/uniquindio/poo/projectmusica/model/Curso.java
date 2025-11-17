@@ -19,7 +19,6 @@ public abstract class Curso implements IValidable, ICurso {
         this.nombreCurso = nombreCurso;
         this.horario = horario;
         this.nivel = nivel;
-        this.tipoClase = tipoClase;
         this.listAsistencias = new LinkedList<>();
         this.listReportes = new LinkedList<>();
         this.ListEstudiantesCurso = new ArrayList<>(cupo);
@@ -106,6 +105,34 @@ public abstract class Curso implements IValidable, ICurso {
     public void setListEstudiantesCurso(ArrayList<Estudiante> listEstudiantesCurso) {
         ListEstudiantesCurso = listEstudiantesCurso;
     }
+
+    public void validarCupo() {
+        if (tipoClase == TipoClase.GRUPAL) {
+            System.out.println("Cupo disponible: " + (cupo - ListEstudiantesCurso.size()));
+        } else {
+            System.out.println("Curso individual — cupo máximo: 1");
+        }
+    }
+
+    public boolean validarConflictoHorario(Curso otro) {
+        if (this.horario == null || otro.horario == null) return false;
+        return this.horario.equals(otro.horario);
+    }
+
+    public boolean listarAsistencia() {
+        if (listAsistencias.isEmpty()) {
+            System.out.println("No hay registros de asistencia.");
+            return false;
+        }
+        System.out.println("Asistencias del curso: " + nombreCurso);
+        for (Asistencia a : listAsistencias) {
+            System.out.println(a.fecha() + " - " + (a.presente() ? "Presente" : "Ausente"));
+        }
+        return true;
+    }
+
+
+
 
     public boolean agregarEstudianteCurso(Estudiante estudiante, TipoClase tipoClase) {
         if (verificarEstudianteCurso(estudiante.getId())) {
