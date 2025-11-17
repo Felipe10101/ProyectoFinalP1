@@ -84,9 +84,47 @@ public class Profesor implements IEvaluable, IHorarioGestionable {
 
 
     @Override
-    public boolean crearComentario(String comentario, double nota, LocalDate fecha, Curso curso, Estudiante estudiante) {
-        return false;
+    public String crearComentario(String comentario, double nota, LocalDate fecha, Curso curso) {
+
+        ReporteProgreso reporte = new ReporteProgreso(comentario, nota, fecha);
+
+        System.out.println("\n==== REPORTE DE PROGRESO ====");
+        System.out.println("Profesor: " + nombre);
+        System.out.println("Curso: " + curso.getNombreCurso());
+        System.out.println("Nivel: " + curso.getNivel());
+        System.out.println("Tipo de clase: " + curso.getTipoClase());
+        System.out.println("------------------------------");
+        System.out.println("Comentario: " + comentario);
+        System.out.println("Nota: " + nota);
+        System.out.println("Fecha: " + fecha);
+
+        System.out.println("\n--- Detalles del curso ---");
+
+        if (curso instanceof Piano piano) {
+            System.out.println("Tipo de piano: " + piano.getTipoPiano());
+            System.out.println("Marca: " + piano.getMarca());
+            System.out.println("¿Requiere pedales?: " + (piano.isRequierePedales() ? "Sí" : "No"));
+        }
+        else if (curso instanceof Guitarra guitarra) {
+            System.out.println("Tipo de cuerda: " + guitarra.getTipoCuerda());
+            System.out.println("Afinación: " + guitarra.getAfinacion());
+            System.out.println("Número de cuerdas: " + guitarra.getCuerdas());
+        }
+        else if (curso instanceof Violin violin) {
+            System.out.println("Tamaño: " + violin.getTamanio());
+            System.out.println("Arco: " + violin.getArco());
+            System.out.println("Técnica: " + violin.getTecnica());
+        }
+        else if (curso instanceof Canto canto) {
+            System.out.println("Tipo de voz: " + canto.getTipoVoz());
+            System.out.println("Género musical: " + canto.getGeneroMusical());
+        }
+
+        System.out.println("==============================\n");
+
+        return comentario;
     }
+
 
     @Override
     public boolean registrarAsistencia(Curso curso, Estudiante estudiante, boolean presente, Profesor profesor) {

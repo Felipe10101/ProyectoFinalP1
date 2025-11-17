@@ -68,7 +68,7 @@ public class AdministradorAcademicoViewController{
 
     // ---------- ESTUDIANTES ----------
     @FXML
-    private void onAgregarEstudiante() {
+    private void onAgregarEstudiante(String nombre, String id, String telefono, int edad) {
         String id = txtEstId.getText().trim();
         String nombre = txtEstNombre.getText().trim();
         String telefono = txtEstTelefono.getText().trim();
@@ -78,7 +78,7 @@ public class AdministradorAcademicoViewController{
             showAlert(Alert.AlertType.WARNING, "Debe completar id y nombre");
             return;
         }
-        Estudiante e = new Estudiante(nombre, id, edad, telefono); // ajusta constructor según tu clase
+        Estudiante e = new Estudiante(nombre, id, telefono. edad);
         boolean ok = controller.agregarEstudiante(e);
         if (ok) {
             showAlert(Alert.AlertType.INFORMATION, "Estudiante agregado");
