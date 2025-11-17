@@ -11,20 +11,21 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("academia"));
+    public void start(Stage stage) throws Exception {
+        scene = new Scene(loadFXML("Academia"));
         stage.setScene(scene);
         stage.show();
     }
 
-    public static void setRoot(String fxml) {
-        scene.setRoot(loadFXML(fxml));
+    public static void setRoot(String name) {
+        scene.setRoot(loadFXML(name));
     }
 
-    private static Parent loadFXML(String fxml) {
+    private static Parent loadFXML(String name) {
         try {
-            return FXMLLoader.load(App.class.getResource(fxml + ".fxml"));
+            return FXMLLoader.load(App.class.getResource("/co/edu/uniquindio/poo/projectmusica/" + name + ".fxml"));
         } catch (Exception e) {
+            System.out.println("ERROR CARGANDO FXML: " + name);
             e.printStackTrace();
             return null;
         }
