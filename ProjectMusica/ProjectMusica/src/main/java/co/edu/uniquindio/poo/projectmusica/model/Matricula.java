@@ -11,7 +11,7 @@ public class Matricula {
         this.fecha = fecha;
     }
 
-    public static String getId() {
+    public String getId() {
         return Id;
     }
 

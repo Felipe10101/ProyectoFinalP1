@@ -5,5 +5,6 @@ public interface ICurso {
     boolean eliminarEstudianteCurso(String id);
     boolean actualizarEstudianteCurso(String id, Estudiante actualizado);
     boolean verificarEstudianteCurso(String id);
-
+    void asignarProfesor(Profesor profesor);
+    void asignarAula(Aula aula);
 }

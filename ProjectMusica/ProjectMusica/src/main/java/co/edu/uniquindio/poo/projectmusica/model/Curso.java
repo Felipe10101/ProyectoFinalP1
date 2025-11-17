@@ -158,4 +158,40 @@ public abstract class Curso implements IValidable, ICurso {
         }
         return false;
     }
+
+    @Override
+    public boolean validarInscripcion(Estudiante estudiante, Curso curso) {
+        // Regla: no repetir estudiante
+        if (curso.verificarEstudianteCurso(estudiante.getId())) {
+            System.out.println("El estudiante ya está inscrito en este curso.");
+            return false;
+        }
+
+        // Regla: validar cupo según tipo de clase
+        if (curso.getTipoClase() == TipoClase.GRUPAL &&
+                curso.getListEstudiantesCurso().size() >= curso.getCupo()) {
+            System.out.println("No hay cupos disponibles en el curso.");
+            return false;
+        }
+
+        if (curso.getTipoClase() == TipoClase.INDIVIDUAL &&
+                curso.getListEstudiantesCurso().size() >= 1) {
+            System.out.println("El curso individual ya tiene estudiante asignado.");
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public void asignarProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    @Override
+    public void asignarAula(Aula aula) {
+        this.aula = aula;
+    }
+
+
 }

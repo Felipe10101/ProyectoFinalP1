@@ -11,6 +11,7 @@ public class Academia {
     private LinkedList<AdministradorAcademico> ListAdministradores;
     private LinkedList<Matricula> ListMatriculas;
     private LinkedList<ReporteProgreso> ListReportes;
+    private LinkedList<Aula> ListAulas;
 
     public Academia(String nombre, String id) {
         this.nombre = nombre;
@@ -21,6 +22,7 @@ public class Academia {
         this.ListAdministradores = new LinkedList<>();
         this.ListMatriculas = new LinkedList<>();
         this.ListReportes = new LinkedList<>();
+        this.ListAulas = new LinkedList<>();
     }
 
     public String getNombreCurso() {
@@ -57,6 +59,10 @@ public class Academia {
 
     public LinkedList<ReporteProgreso> getListReportes() {
         return ListReportes;
+    }
+
+    public LinkedList<Aula> getListAulas() {
+        return ListAulas;
     }
 
 
@@ -345,7 +351,7 @@ public class Academia {
         return true;
     }
 
- public boolean cambiarHorarioCurso(String nombreCurso, Horario nuevoHorario) {
+    public boolean cambiarHorarioCurso(String nombreCurso, Horario nuevoHorario) {
      Curso curso = null;
      for (Curso c : ListCursos) {
          if (c.getNombreCurso().equals(nombreCurso)) {
@@ -491,6 +497,70 @@ public class Academia {
         curso.setProfesor(profesor);
         System.out.println("✔ Profesor asignado correctamente al curso: " + nombreCurso);
         return true;
+    }
+
+    // CRUD AULA
+
+    public boolean crearAula(String nombre, int capacidad, Double estado) {
+        for (Aula a : ListAulas) {
+            if (a.nombre().equals(nombre)) {
+                return false;
+            }
+        }
+        Aula nuevaAula = new Aula(nombre,capacidad, estado);
+        ListAulas.add(nuevaAula);
+        return true;
+    }
+
+    public boolean eliminarAula(String nombre) {
+
+        Iterator<Aula> it = ListAulas.iterator();
+        while (it.hasNext()) {
+            Aula a = it.next();
+            if (a.nombre().equals(nombre)) {
+
+                // Validar que no esté asignada a ningún curso
+                for (Curso c : ListCursos) {
+                    if (c.getAula() != null && c.getAula().equals(a)) {
+                        System.out.println("Error: no se puede eliminar el aula, está asignada al curso " + c.getNombreCurso());
+                        return false;
+                    }
+                }
+
+                it.remove();
+                System.out.println("✔ Aula eliminada: " + nombre);
+                return true;
+            }
+        }
+
+        System.out.println("Error: aula no encontrada.");
+        return false;
+    }
+
+    public Aula obtenerAula(String nombre) {
+        for (Aula a : ListAulas) {
+            if (a.nombre().equals(nombre)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
+    public boolean actualizarAula(String nombre, int capacidad, Double estado) {
+
+        for (Aula a : ListAulas) {
+            if (a.nombre().equals(nombre)) {
+                Aula aulaActualizada = new Aula(nombre,capacidad, estado);
+                int idx = ListAulas.indexOf(a);
+                ListAulas.set(idx, aulaActualizada);
+
+                System.out.println("✔ Aula actualizada: " + nombre + " nueva capacidad: " + capacidad);
+                return true;
+            }
+        }
+
+        System.out.println("Error: aula no encontrada.");
+        return false;
     }
 
 }
