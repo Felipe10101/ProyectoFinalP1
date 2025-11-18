@@ -32,9 +32,6 @@ public class AdministradorAcademicoTest {
         );
     }
 
-    // -----------------------------------------------------------
-    //  TEST AGREGAR ESTUDIANTE
-    // -----------------------------------------------------------
     @Test
     public void testAgregarEstudiante() {
         Academia a = crearAcademiaDemo();
@@ -46,9 +43,6 @@ public class AdministradorAcademicoTest {
         assertEquals(1, a.getListEstudiantes().size());
     }
 
-    // -----------------------------------------------------------
-    //  TEST AGREGAR PROFESOR
-    // -----------------------------------------------------------
     @Test
     public void testAgregarProfesor() {
         Academia a = crearAcademiaDemo();
@@ -60,9 +54,6 @@ public class AdministradorAcademicoTest {
         assertEquals(1, a.getListProfesores().size());
     }
 
-    // -----------------------------------------------------------
-    //  TEST CREAR CURSO PIANO (ADMIN)
-    // -----------------------------------------------------------
     @Test
     public void testCrearCursoPiano() {
         Academia a = crearAcademiaDemo();
@@ -83,9 +74,6 @@ public class AdministradorAcademicoTest {
         assertTrue(a.verificarCurso("Piano1"));
     }
 
-    // -----------------------------------------------------------
-    //  TEST ACTUALIZAR CURSO
-    // -----------------------------------------------------------
     @Test
     public void testActualizarCurso() {
         Academia a = crearAcademiaDemo();
@@ -126,9 +114,6 @@ public class AdministradorAcademicoTest {
         assertFalse(a.verificarCurso("CursoPiano"));
     }
 
-    // -----------------------------------------------------------
-    //  TEST CAMBIAR HORARIO DEL CURSO
-    // -----------------------------------------------------------
     @Test
     public void testCambiarHorarioCurso() {
         Academia a = crearAcademiaDemo();

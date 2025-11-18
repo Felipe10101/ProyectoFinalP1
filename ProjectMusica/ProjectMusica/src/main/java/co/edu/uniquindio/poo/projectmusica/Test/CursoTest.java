@@ -27,9 +27,6 @@ public class CursoTest {
         );
     }
 
-    // ----------------------------------------------------------
-    // validarConflictoHorario
-    // ----------------------------------------------------------
     @Test
     public void testValidarConflictoHorario() {
         Curso c1 = crearCursoDemo();
@@ -50,17 +47,14 @@ public class CursoTest {
         assertFalse(c1.validarConflictoHorario(c2));
     }
 
-    // ----------------------------------------------------------
-    // listarAsistencia
-    // ----------------------------------------------------------
+
     @Test
     public void testListarAsistencia() {
         Curso c = crearCursoDemo();
 
-        // No hay asistencias aún
         assertFalse(c.listarAsistencia());
 
-        // Agregar una asistencia válida con LocalDate
+
         c.getListAsistencias().add(
                 new Asistencia(LocalDate.of(2025, 1, 10), true)
         );
@@ -68,9 +62,6 @@ public class CursoTest {
         assertTrue(c.listarAsistencia());
     }
 
-    // ----------------------------------------------------------
-    // agregarEstudianteCurso
-    // ----------------------------------------------------------
     @Test
     public void testAgregarEstudianteCurso() {
         Curso c = crearCursoDemo();
@@ -87,9 +78,6 @@ public class CursoTest {
         assertFalse(c.agregarEstudianteCurso(extra, TipoClase.GRUPAL));
     }
 
-    // ----------------------------------------------------------
-    // eliminarEstudianteCurso
-    // ----------------------------------------------------------
     @Test
     public void testEliminarEstudianteCurso() {
         Curso c = crearCursoDemo();
@@ -102,9 +90,7 @@ public class CursoTest {
         assertFalse(c.eliminarEstudianteCurso("10"));
     }
 
-    // ----------------------------------------------------------
-    // actualizarEstudianteCurso
-    // ----------------------------------------------------------
+
     @Test
     public void testActualizarEstudianteCurso() {
         Curso c = crearCursoDemo();
@@ -122,9 +108,6 @@ public class CursoTest {
         assertFalse(c.actualizarEstudianteCurso("999", nuevo));
     }
 
-    // ----------------------------------------------------------
-    // verificarEstudianteCurso
-    // ----------------------------------------------------------
     @Test
     public void testVerificarEstudianteCurso() {
         Curso c = crearCursoDemo();
@@ -136,9 +119,7 @@ public class CursoTest {
         assertFalse(c.verificarEstudianteCurso("5"));
     }
 
-    // ----------------------------------------------------------
-    // validarInscripcion
-    // ----------------------------------------------------------
+
     @Test
     public void testValidarInscripcion() {
         Curso c = crearCursoDemo();
@@ -159,9 +140,7 @@ public class CursoTest {
         assertFalse(c.validarInscripcion(extra, c));
     }
 
-    // ----------------------------------------------------------
-    // asignarProfesor
-    // ----------------------------------------------------------
+
     @Test
     public void testAsignarProfesor() {
         Curso c = crearCursoDemo();
@@ -173,9 +152,7 @@ public class CursoTest {
         assertEquals("Luis", c.getProfesor().getNombre());
     }
 
-    // ----------------------------------------------------------
-    // asignarAula
-    // ----------------------------------------------------------
+
     @Test
     public void testAsignarAula() {
         Curso c = crearCursoDemo();

@@ -17,9 +17,6 @@ public class AcademiaTest {
         academia = new Academia("UQ", "1");
     }
 
-    // =====================================================================
-    // ESTUDIANTES
-    // =====================================================================
 
     @Test
     public void testAgregarEstudiante() {
@@ -56,9 +53,6 @@ public class AcademiaTest {
         assertEquals("999", academia.obtenerEstudiante("10").getTelefono());
     }
 
-    // =====================================================================
-    // PROFESORES
-    // =====================================================================
 
     @Test
     public void testAgregarProfesor() {
@@ -86,9 +80,6 @@ public class AcademiaTest {
         assertEquals("Luis Miguel", academia.obtenerProfesor("20").getNombre());
     }
 
-    // =====================================================================
-    // CURSOS (CREACIÓN Y CRUD)
-    // =====================================================================
 
     @Test
     public void testCrearCursoPiano() {
@@ -132,9 +123,6 @@ public class AcademiaTest {
         assertEquals(Nivel.MEDIO, c.getNivel());
     }
 
-    // =====================================================================
-    // AULAS
-    // =====================================================================
 
     @Test
     public void testCrearAula() {
@@ -182,9 +170,6 @@ public class AcademiaTest {
         assertEquals(50, academia.obtenerAula("A1").capacidad());
     }
 
-    // =====================================================================
-    // MATRICULAS
-    // =====================================================================
 
     @Test
     public void testAgregarMatricula() {
@@ -211,9 +196,6 @@ public class AcademiaTest {
         assertEquals(LocalDate.of(2025, 1, 1), academia.obtenerMatricula("M1").getFecha());
     }
 
-    // =====================================================================
-    // ASIGNAR PROFESOR
-    // =====================================================================
 
     @Test
     public void testAsignarProfesorACurso() {
@@ -242,9 +224,6 @@ public class AcademiaTest {
         assertFalse(academia.asignarProfesorACurso("20", "Curso2"));
     }
 
-    // =====================================================================
-    // CAMBIAR HORARIO CURSO
-    // =====================================================================
 
     @Test
     public void testCambiarHorarioCursoCorrecto() {
@@ -271,9 +250,6 @@ public class AcademiaTest {
         assertFalse(academia.cambiarHorarioCurso("Curso1", Horario.MANIANA));
     }
 
-    // =====================================================================
-    // MATRICULAR ESTUDIANTE EN CURSO
-    // =====================================================================
 
     @Test
     public void testMatricularEstudianteCorrecto() {
