@@ -157,38 +157,31 @@ public class Academia {
 
     // CRUD CURSO
 
-    public Curso crearCursoPiano(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
-                                 String tipoPiano, String marcaPiano, boolean requierePedales) {
+    public Curso crearCursoPiano(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo, String tipoPiano, String marca, boolean requierePedales) {
 
-        Curso curso = new Piano(nombre, cupo, tipoClase, horario, nivel,
-                tipoPiano, marcaPiano, requierePedales);
+        Curso curso = new Piano(nombreCurso, horario,  nivel,  tipoClase,  cupo,  tipoPiano,  marca,  requierePedales);
 
         ListCursos.add(curso);
         return curso;
     }
-    public Curso crearCursoGuitarra(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
-                                    String afinacion, String tipoCuerda, int cuerdas) {
+    public Curso crearCursoGuitarra(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo,String afinacion, String tipoCuerda, int cuerdas) {
 
-        Curso curso = new Guitarra(nombre, cupo, tipoClase, horario, nivel,
-                afinacion, tipoCuerda, cuerdas);
+        Curso curso = new Guitarra(nombreCurso, horario, nivel, tipoClase, cupo, afinacion, tipoCuerda, cuerdas);
 
         ListCursos.add(curso);
         return curso;
     }
-    public Curso crearCursoCanto(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
+    public Curso crearCursoCanto(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo,
                                  String tipoVoz, String generoMusical) {
 
-        Curso curso = new Canto(nombre, cupo, tipoClase, horario, nivel,
-                tipoVoz, generoMusical);
+        Curso curso = new Canto( nombreCurso, horario,  nivel,  tipoClase,  cupo, tipoVoz,  generoMusical);
 
         ListCursos.add(curso);
         return curso;
     }
-    public Curso crearCursoViolin(String nombre, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,
-                                  String tamanio, String arco, String tecnica) {
+    public Curso crearCursoViolin(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo, String tamanio, String arco, String tecnica) {
 
-        Curso curso = new Violin(nombre, cupo, tipoClase, horario, nivel,
-                tamanio, arco, tecnica);
+        Curso curso = new Violin(nombreCurso, horario, nivel, tipoClase, cupo, tamanio, arco, tecnica);
 
         ListCursos.add(curso);
         return curso;
