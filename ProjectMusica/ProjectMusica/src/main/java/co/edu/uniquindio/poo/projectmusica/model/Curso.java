@@ -4,16 +4,16 @@ import java.util.LinkedList;
 
 public abstract class Curso implements IValidable, ICurso {
 
-    private String nombreCurso;
-    private Horario horario;
-    private Nivel nivel;
-    private Aula aula;
-    private Profesor profesor;
-    private TipoClase tipoClase;
-    private int cupo;
-    private ArrayList<Estudiante> ListEstudiantesCurso;
-    private LinkedList<Asistencia> listAsistencias;
-    private LinkedList<ReporteProgreso> listReportes;
+    protected String nombreCurso;
+    protected Horario horario;
+    protected Nivel nivel;
+    protected Aula aula;
+    protected Profesor profesor;
+    protected TipoClase tipoClase;
+    protected int cupo;
+    protected ArrayList<Estudiante> ListEstudiantesCurso;
+    protected LinkedList<Asistencia> listAsistencias;
+    protected LinkedList<ReporteProgreso> listReportes;
 
     public Curso(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo) {
         this.nombreCurso = nombreCurso;
