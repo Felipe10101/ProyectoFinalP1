@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.poo.projectmusica.CrudCurso"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane xmlns="http://javafx.com/javafx/"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.projectmusica.viewcontroller.crudCursoViewController"
+            prefWidth="900" prefHeight="600">
 
-</AnchorPane>
+    <top>
+        <HBox spacing="10" padding="10">
+            <Label text="CRUD Cursos" style="-fx-font-size:16; -fx-font-weight:bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnRefrescar" text="Refrescar" onAction="#onRefrescar"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane orientation="HORIZONTAL">
+            <!-- Left: tabla -->
+            <VBox spacing="8" padding="10">
+                <TableView fx:id="tablaCursos" prefWidth="520" prefHeight="520">
+                    <columns>
+                        <TableColumn fx:id="colNombre" text="Nombre" prefWidth="220"/>
+                        <TableColumn fx:id="colTipo" text="Instrumento" prefWidth="120"/>
+                        <TableColumn fx:id="colCupo" text="Cupo" prefWidth="80"/>
+                        <TableColumn fx:id="colNivel" text="Nivel" prefWidth="80"/>
+                        <TableColumn fx:id="colHorario" text="Horario" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Right: formulario -->
+            <VBox spacing="8" padding="12" prefWidth="350">
+                <Label text="Formulario" style="-fx-font-weight:bold; -fx-font-size:14;"/>
+                <GridPane hgap="8" vgap="8">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="35"/>
+                        <ColumnConstraints percentWidth="65"/>
+                    </columnConstraints>
+
+                    <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtNombreCurso" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Instrumento:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbInstrumento" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Horario:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbHorario" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Nivel:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbNivel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="TipoClase:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="cbTipoClase" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Cupo:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtCupo" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <HBox spacing="10" style="-fx-padding: 10 0 0 0;">
+                    <Button fx:id="btnCrear" text="Crear" onAction="#onCrear" />
+                    <Button fx:id="btnActualizar" text="Actualizar (horario/nivel)" onAction="#onActualizar" />
+                    <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" style="-fx-background-color:#d9534f; -fx-text-fill:white;"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

@@ -51,6 +51,6 @@ public class AdministradorAcademicoViewController {
 
     @FXML
     private void salir() {
-        App.setRoot("Academia"); // vuelve al menú principal
+        App.setRoot("Academia");
     }
 }

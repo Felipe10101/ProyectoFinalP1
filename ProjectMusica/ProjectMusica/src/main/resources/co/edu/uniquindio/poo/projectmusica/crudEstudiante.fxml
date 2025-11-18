@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.poo.projectmusica.CrudEstudiante"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="co.edu.uniquindio.poo.projectmusica.viewcontroller.crudEstudianteViewController">
 
-</AnchorPane>
+    <top>
+        <Label text="CRUD Estudiantes"
+               style="-fx-font-size:24px; -fx-padding:10" />
+    </top>
+
+    <left>
+        <VBox spacing="10" padding="20">
+
+            <Label text="ID:"/>
+            <TextField fx:id="txtId"/>
+
+            <Label text="Nombre:"/>
+            <TextField fx:id="txtNombre"/>
+
+            <Label text="Telefono:"/>
+            <TextField fx:id="txtTelefono"/>
+
+            <Label text="Edad:"/>
+            <TextField fx:id="txtEdad"/>
+
+            <HBox spacing="10">
+                <Button text="Crear"     onAction="#crearEstudiante"/>
+                <Button text="Actualizar" onAction="#actualizarEstudiante"/>
+                <Button text="Eliminar"   onAction="#eliminarEstudiante"/>
+            </HBox>
+
+        </VBox>
+    </left>
+
+    <center>
+        <TableView fx:id="tablaEstudiantes">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="80"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="120"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="120"/>
+                <TableColumn fx:id="colEdad" text="Edad" prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
