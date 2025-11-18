@@ -1,61 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
+<BorderPane prefWidth="700" prefHeight="500"
+            xmlns="http://javafx.com/javafx/"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="co.edu.uniquindio.poo.projectmusica.viewcontroller.ProfesorViewController">
 
-    <children>
-        <VBox spacing="15" alignment="TOP_LEFT"
-              AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20">
+    <top>
+        <Label text="Panel del Profesor"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </top>
 
-            <children>
+    <center>
+        <VBox spacing="12" padding="20">
 
-                <Label text="Crear Reporte de Progreso"
-                       style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <HBox spacing="10">
+                <Label text="Curso:"/>
+                <ComboBox fx:id="cbCursos" prefWidth="250"/>
+            </HBox>
 
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <children>
-                        <Label text="Comentario:"/>
-                        <TextField fx:id="txtComentario" prefWidth="250"
-                                   promptText="Escribe el comentario..." />
-                    </children>
-                </HBox>
+            <HBox spacing="10">
+                <Label text="Comentario:"/>
+                <TextField fx:id="txtComentario" prefWidth="300"/>
+            </HBox>
 
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <children>
-                        <Label text="Nota:"/>
-                        <TextField fx:id="txtNota" prefWidth="100"
-                                   promptText="Ej: 4.5" />
-                    </children>
-                </HBox>
+            <HBox spacing="10">
+                <Label text="Nota:"/>
+                <TextField fx:id="txtNota" prefWidth="100"/>
+            </HBox>
 
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <children>
-                        <Label text="Fecha:"/>
-                        <DatePicker fx:id="dpFecha"/>
-                    </children>
-                </HBox>
+            <HBox spacing="10">
+                <Label text="Fecha:"/>
+                <DatePicker fx:id="dpFecha"/>
+            </HBox>
 
-                <Button text="Crear Reporte"
-                        onAction="#onCrearComentario"
-                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+            <Button text="Crear Reporte"
+                    onAction="#onCrearComentario"
+                    style="-fx-font-size: 14px;"/>
 
-                <Label text="Reporte Generado:"
-                       style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Label text="Reporte generado:"
+                   style="-fx-font-weight: bold; -fx-padding: 10 0 0 0;"/>
 
-                <TextArea fx:id="txtReporteProgreso"
-                          prefHeight="250" prefWidth="400"
-                          wrapText="true"
-                          editable="false"/>
-            </children>
-
+            <TextArea fx:id="txtReporteProgreso"
+                      prefHeight="250"
+                      wrapText="true"/>
         </VBox>
-    </children>
+    </center>
 
-</AnchorPane>
+</BorderPane>

@@ -4,8 +4,8 @@ public class Violin extends Curso{
 
     private String tamanio, arco, tecnica;
 
-    public Violin(String nombreCurso, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel, String tamanio, String arco, String tecnica) {
-        super(nombreCurso, cupo, horario, nivel);
+    public Violin(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo, String tamanio, String arco, String tecnica) {
+        super(nombreCurso, horario, nivel, tipoClase, cupo);
         this.tamanio = tamanio;
         this.arco = arco;
         this.tecnica = tecnica;

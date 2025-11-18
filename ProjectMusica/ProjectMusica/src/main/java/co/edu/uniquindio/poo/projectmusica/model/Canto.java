@@ -4,8 +4,10 @@ public class Canto extends Curso{
 
     private String tipoVoz, GeneroMusical;
 
-    public Canto(String nombreCurso, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel, String tipoVoz, String generoMusical) {
-        super (nombreCurso, cupo, horario, nivel);
+    public Canto(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo,
+                 String tipoVoz, String generoMusical) {
+
+        super (nombreCurso, horario, nivel, tipoClase, cupo);
         this.tipoVoz = tipoVoz;
         GeneroMusical = generoMusical;
     }

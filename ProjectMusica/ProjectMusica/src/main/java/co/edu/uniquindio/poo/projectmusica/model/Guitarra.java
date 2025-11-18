@@ -4,8 +4,8 @@ public class Guitarra extends Curso{
     private String tipoCuerda, afinacion;
     private int cuerdas;
 
-    public Guitarra(String nombreCurso, int cupo, TipoClase tipoClase, Horario horario, Nivel nivel,String afinacion, String tipoCuerda, int cuerdas) {
-        super(nombreCurso, cupo, horario, nivel);
+    public Guitarra(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo,String afinacion, String tipoCuerda, int cuerdas) {
+        super(nombreCurso, horario, nivel, tipoClase, cupo);
         this.tipoCuerda = tipoCuerda;
         this.afinacion = afinacion;
         this.cuerdas = cuerdas;

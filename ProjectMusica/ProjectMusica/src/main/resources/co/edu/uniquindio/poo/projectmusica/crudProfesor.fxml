@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.poo.projectmusica.CrudProfesor"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.projectmusica.viewcontroller.crudProfesorViewController"
+            prefWidth="600" prefHeight="450">
+
+    <children>
+
+        <Label layoutX="30" layoutY="20" text="CRUD Profesor" style="-fx-font-size: 20px;"/>
+
+        <Label layoutX="30" layoutY="70" text="Nombre:"/>
+        <TextField fx:id="txtNombre" layoutX="140" layoutY="65"/>
+
+        <Label layoutX="30" layoutY="110" text="ID:"/>
+        <TextField fx:id="txtId" layoutX="140" layoutY="105"/>
+
+        <Label layoutX="30" layoutY="150" text="Teléfono:"/>
+        <TextField fx:id="txtTelefono" layoutX="140" layoutY="145"/>
+
+        <Label layoutX="30" layoutY="190" text="Edad:"/>
+        <TextField fx:id="txtEdad" layoutX="140" layoutY="185"/>
+
+        <Button text="Crear" layoutX="350" layoutY="65" onAction="#crearProfesor"/>
+        <Button text="Actualizar" layoutX="350" layoutY="115" onAction="#actualizarProfesor"/>
+        <Button text="Eliminar" layoutX="350" layoutY="165" onAction="#eliminarProfesor"/>
+
+        <TableView fx:id="tablaProfesores" layoutX="30" layoutY="240" prefWidth="540" prefHeight="180">
+            <columns>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                <TableColumn fx:id="colId" text="ID" prefWidth="120"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="150"/>
+                <TableColumn fx:id="colEdad" text="Edad" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+    </children>
 
 </AnchorPane>

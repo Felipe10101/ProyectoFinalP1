@@ -15,10 +15,11 @@ public abstract class Curso implements IValidable, ICurso {
     private LinkedList<Asistencia> listAsistencias;
     private LinkedList<ReporteProgreso> listReportes;
 
-    public Curso(String nombreCurso, int cupo, Horario horario, Nivel nivel) {
+    public Curso(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo) {
         this.nombreCurso = nombreCurso;
         this.horario = horario;
         this.nivel = nivel;
+        this.tipoClase = tipoClase;
         this.listAsistencias = new LinkedList<>();
         this.listReportes = new LinkedList<>();
         this.ListEstudiantesCurso = new ArrayList<>(cupo);
@@ -49,6 +50,8 @@ public abstract class Curso implements IValidable, ICurso {
     public void setNivel(Nivel nivel) {
         this.nivel = nivel;
     }
+
+
 
     public LinkedList<Asistencia> getListAsistencias() {
         return listAsistencias;
