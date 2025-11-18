@@ -156,4 +156,84 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
         return academia.obtenerAula(nombre);
     }
 
+    public boolean validarPrerequisitos(Estudiante est, Curso curso) {
+        if (est == null || curso == null) return false;
+        if (curso.getNivel() == Nivel.PRINCIPIANTE) return true;
+        if (curso.getNivel() == Nivel.BASICO) {
+            return est.getCursosInscritos().stream()
+                    .anyMatch(c -> c.getNivel() == Nivel.PRINCIPIANTE);
+        }
+        if (curso.getNivel() == Nivel.MEDIO) {
+            return est.getCursosInscritos().stream()
+                    .anyMatch(c -> c.getNivel() == Nivel.BASICO);
+        }
+        if (curso.getNivel() == Nivel.ALTO) {
+            return est.getCursosInscritos().stream()
+                    .anyMatch(c -> c.getNivel() == Nivel.MEDIO);
+        }
+        return false;
+    }
+
+    public boolean resolverConflictoHorario(Curso c1, Curso c2) {
+        if (c1 == null || c2 == null) return false;
+        if (c1.getAula() == null || c2.getAula() == null) return false;
+        if (!c1.getHorario().equals(c2.getHorario())) return false;
+        if (!c1.getAula().equals(c2.getAula())) return false;
+        Curso mover = (c1.getCupo() <= c2.getCupo()) ? c1 : c2;
+        Horario horarioActual = mover.getHorario();
+        Aula aulaActual = mover.getAula();
+        for (Horario candidate : Horario.values()) {
+            if (candidate.equals(horarioActual)) continue;
+            boolean aulaLibre = true;
+            boolean profLibre = true;
+            for (Curso other : academia.getListCursos()) {
+                if (other == mover) continue;
+                if (other.getAula() != null && other.getAula().equals(aulaActual)
+                        && other.getHorario().equals(candidate)) {
+                    aulaLibre = false;
+                    break;
+                }
+            }
+            if (!aulaLibre) continue;
+            if (mover.getProfesor() != null) {
+                for (Curso other : academia.getListCursos()) {
+                    if (other == mover) continue;
+                    if (other.getProfesor() != null && other.getProfesor().equals(mover.getProfesor())
+                            && other.getHorario().equals(candidate)) {
+                        profLibre = false;
+                        break;
+                    }
+                }
+            }
+            if (!profLibre) continue;
+            boolean ok = academia.cambiarHorarioCurso(mover.getNombreCurso(), candidate);
+            if (ok) return true;
+
+        }
+        for (Aula otraAula : academia.getListAulas()) {
+            if (otraAula.equals(aulaActual)) continue;
+            if (otraAula.capacidad() < mover.getCupo()) continue;
+
+            boolean ocupada = false;
+            for (Curso other : academia.getListCursos()) {
+                if (other == mover) continue;
+                if (other.getAula() != null && other.getAula().equals(otraAula)
+                        && other.getHorario().equals(horarioActual)) {
+                    ocupada = true;
+                    break;
+                }
+            }
+            if (ocupada) continue;
+
+            boolean okAsign = academia.asignarAulaACurso(mover.getNombreCurso(), otraAula);
+            if (okAsign) return true;
+        }
+        return false;
+    }
+
+
+
+
+
+
 }
