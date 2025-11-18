@@ -50,36 +50,26 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
         return academia.actualizarProfesor(id, actualizado);
     }
 
-    public Curso crearCursoPiano(String nombre, int cupo, TipoClase tipoClase,
-                                 Horario horario, Nivel nivel,
-                                 String tipoPiano, String marcaPiano, boolean requierePedales) {
+    public Curso crearCursoPiano(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo, String tipoPiano, String marca, boolean requierePedales) {
 
-        return academia.crearCursoPiano(nombre, cupo, tipoClase, horario, nivel,
-                tipoPiano, marcaPiano, requierePedales);
+        return academia.crearCursoPiano(nombreCurso,horario,nivel,tipoClase,cupo,tipoPiano,marca,requierePedales);
     }
 
-    public Curso crearCursoGuitarra(String nombre, int cupo, TipoClase tipoClase,
-                                    Horario horario, Nivel nivel,
-                                    String afinacion, String tipoCuerda, int cuerdas) {
+    public Curso crearCursoGuitarra(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo,String afinacion, String tipoCuerda, int cuerdas) {
 
-        return academia.crearCursoGuitarra(nombre, cupo, tipoClase, horario, nivel,
-                afinacion, tipoCuerda, cuerdas);
+        return academia.crearCursoGuitarra(nombreCurso,horario,nivel, tipoClase, cupo,afinacion, tipoCuerda,cuerdas);
     }
 
-    public Curso crearCursoCanto(String nombre, int cupo, TipoClase tipoClase,
-                                 Horario horario, Nivel nivel,
+    public Curso crearCursoCanto(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo,
                                  String tipoVoz, String generoMusical) {
 
-        return academia.crearCursoCanto(nombre, cupo, tipoClase, horario, nivel,
-                tipoVoz, generoMusical);
+        return academia.crearCursoCanto(nombreCurso, horario, nivel, tipoClase,cupo,
+     tipoVoz, generoMusical);
     }
 
-    public Curso crearCursoViolin(String nombre, int cupo, TipoClase tipoClase,
-                                  Horario horario, Nivel nivel,
-                                  String tamanio, String arco, String tecnica) {
+    public Curso crearCursoViolin(String nombreCurso,Horario horario, Nivel nivel, TipoClase tipoClase, int cupo, String tamanio, String arco, String tecnica) {
 
-        return academia.crearCursoViolin(nombre, cupo, tipoClase, horario, nivel,
-                tamanio, arco, tecnica);
+        return academia.crearCursoViolin(nombreCurso,horario,nivel,tipoClase,cupo,tamanio,arco,tecnica);
     }
 
     public boolean eliminarCurso(String nombreCurso) {

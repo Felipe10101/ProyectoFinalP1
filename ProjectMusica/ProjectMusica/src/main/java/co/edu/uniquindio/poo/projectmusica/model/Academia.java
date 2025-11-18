@@ -41,6 +41,14 @@ public class Academia {
         this.id = id;
     }
 
+    public LinkedList<AdministradorAcademico> getListAdministradores() {
+        return ListAdministradores;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public LinkedList<Estudiante> getListEstudiantes() {
         return ListEstudiantes;
     }

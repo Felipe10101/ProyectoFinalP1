@@ -3,6 +3,7 @@ module co.edu.uniquindio.poo.projectmusica {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires org.junit.jupiter.api;
 
     opens co.edu.uniquindio.poo.projectmusica to javafx.fxml;
     opens co.edu.uniquindio.poo.projectmusica.controller to javafx.fxml;

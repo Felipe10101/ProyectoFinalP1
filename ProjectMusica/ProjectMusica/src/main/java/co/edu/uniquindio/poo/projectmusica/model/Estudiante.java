@@ -33,18 +33,14 @@ public class Estudiante implements IInscribible {
             return null;
         }
 
-        // Validar si ya está inscrito
         if (cursosInscritos.contains(curso)) {
             System.out.println("✘ Ya estás inscrito en este curso.");
             return null;
         }
 
-        // Validar prerrequisitos
         if (!validarPrerequisitos(curso)) {
             return null;
         }
-
-        // Validar inscripción global en Academia
         boolean ok = academia.matricularEstudiante(this.getId(), curso.getNombreCurso());
 
         if (ok) {
@@ -56,6 +52,7 @@ public class Estudiante implements IInscribible {
             return null;
         }
     }
+
 
 
     @Override
