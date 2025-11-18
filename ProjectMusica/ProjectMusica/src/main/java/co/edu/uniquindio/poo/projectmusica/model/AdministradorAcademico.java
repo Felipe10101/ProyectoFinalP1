@@ -97,7 +97,7 @@ public class AdministradorAcademico implements IHorarioGestionable, IReporteable
     }
 
     public boolean asignarProfesor(String idProfesor, String nombreCurso) {
-        // Solo si creas academia.asignarProfesorACurso()
+
         return academia.asignarProfesorACurso(idProfesor, nombreCurso);
     }
 

@@ -89,7 +89,7 @@ public class Academia {
         while (iterator.hasNext()) {
             Estudiante e = iterator.next();
             if (e.getId().equals(id)) {
-                iterator.remove(); // ✔ correcto
+                iterator.remove();
                 return true;
             }
         }
@@ -298,7 +298,7 @@ public class Academia {
         for (Matricula m : ListMatriculas){
             if (m.getId().equals(Id)){
                 m.setFecha(actualizado.getFecha());
-                // si tu clase tiene más atributos, agrégalos aquí
+
                 return true;
             }
         }

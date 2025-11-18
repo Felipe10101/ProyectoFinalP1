@@ -165,7 +165,7 @@ public abstract class Curso implements IValidable, ICurso {
         }
         return false;
     }
-//
+
     public boolean actualizarEstudianteCurso(String Id, Estudiante actualizado) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
             if (estudiante.getId().equals(Id)) {
@@ -178,7 +178,7 @@ public abstract class Curso implements IValidable, ICurso {
         return false;
     }
 
-    //
+
 
     public boolean verificarEstudianteCurso(String Id) {
         for (Estudiante estudiante : ListEstudiantesCurso) {
@@ -229,13 +229,13 @@ public abstract class Curso implements IValidable, ICurso {
 
     @Override
     public boolean validarInscripcion(Estudiante estudiante, Curso curso) {
-        // Regla: no repetir estudiante
+
         if (curso.verificarEstudianteCurso(estudiante.getId())) {
             System.out.println("El estudiante ya está inscrito en este curso.");
             return false;
         }
 
-        // Regla: validar cupo según tipo de clase
+
         if (curso.getTipoClase() == TipoClase.GRUPAL &&
                 curso.getListEstudiantesCurso().size() >= curso.getCupo()) {
             System.out.println("No hay cupos disponibles en el curso.");

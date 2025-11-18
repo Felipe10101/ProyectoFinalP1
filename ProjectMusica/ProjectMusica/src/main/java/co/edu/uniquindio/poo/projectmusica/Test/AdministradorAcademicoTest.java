@@ -99,9 +99,9 @@ public class AdministradorAcademicoTest {
         assertEquals(Nivel.MEDIO, original.getNivel());
     }
 
-    // -----------------------------------------------------------
+
     //  TEST ELIMINAR CURSO
-    // -----------------------------------------------------------
+
     @Test
     public void testEliminarCurso() {
         Academia a = crearAcademiaDemo();

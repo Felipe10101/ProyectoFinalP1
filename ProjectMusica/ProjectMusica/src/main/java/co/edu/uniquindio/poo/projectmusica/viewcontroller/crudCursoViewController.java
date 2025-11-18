@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class crudCursoViewController {
 
-    // Tabla y columnas
+
     @FXML private TableView<Curso> tablaCursos;
     @FXML private TableColumn<Curso, String> colNombre;
     @FXML private TableColumn<Curso, Integer> colCupo;
@@ -20,7 +20,7 @@ public class crudCursoViewController {
     @FXML private TableColumn<Curso, Nivel> colNivel;
     @FXML private TableColumn<Curso, Horario> colHorario;
 
-    // Formulario
+
     @FXML private TextField txtNombreCurso;
     @FXML private ComboBox<String> cbInstrumento;
     @FXML private ComboBox<Horario> cbHorario;
@@ -28,7 +28,7 @@ public class crudCursoViewController {
     @FXML private ComboBox<TipoClase> cbTipoClase;
     @FXML private TextField txtCupo;
 
-    // Botones
+
     @FXML private Button btnCrear;
     @FXML private Button btnActualizar;
     @FXML private Button btnEliminar;
@@ -42,7 +42,7 @@ public class crudCursoViewController {
     public void initialize() {
         crudController = new CrudCursoController();
 
-        // Columnas
+
         colNombre.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("nombreCurso"));
         colCupo.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("cupo"));
         colTipo.setCellValueFactory(cell -> {
@@ -59,13 +59,13 @@ public class crudCursoViewController {
 
         tablaCursos.setItems(obsCursos);
 
-        // ComboBoxes
+
         cbInstrumento.setItems(FXCollections.observableArrayList("Piano", "Guitarra", "Canto", "Violin"));
         cbHorario.setItems(FXCollections.observableArrayList(Arrays.asList(Horario.values())));
         cbNivel.setItems(FXCollections.observableArrayList(Arrays.asList(Nivel.values())));
         cbTipoClase.setItems(FXCollections.observableArrayList(Arrays.asList(TipoClase.values())));
 
-        // Listeners
+
         tablaCursos.getSelectionModel().selectedItemProperty().addListener((obs, oldS, newS) -> {
             if (newS != null) {
                 cargarCursoEnFormulario(newS);
@@ -83,7 +83,7 @@ public class crudCursoViewController {
         if (curso.getNivel() != null) cbNivel.setValue(curso.getNivel());
         if (curso.getTipoClase() != null) cbTipoClase.setValue(curso.getTipoClase());
 
-        // detectar tipo (Clase concreta)
+
         String tipo = curso.getClass().getSimpleName();
         cbInstrumento.setValue(tipo);
     }

@@ -85,7 +85,7 @@ public class Estudiante implements IInscribible {
         switch (nivelCurso) {
 
             case PRINCIPIANTE:
-                return true; // No requiere nada
+                return true;
 
             case BASICO:
                 return validarNivelPrevio(Nivel.PRINCIPIANTE, "básico");

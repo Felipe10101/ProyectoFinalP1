@@ -26,7 +26,7 @@ public class AdministradorAcademicoViewController {
 
     @FXML
     public void initialize() {
-        // Aquí podrías cargar info si fuera necesario
+
     }
 
     @FXML
